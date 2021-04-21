@@ -1,0 +1,42 @@
+<div class="card">
+    <div class="card-header">
+    </div>
+    <div class="card-body">
+        <div>
+          
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <th>상품번호</th>
+                    <th>상품명</th>
+                    <th>설명</th>
+                    <th>카테고리</th>
+                    <th>가격</th>
+                </tr>
+                <tr ng-repeat="product in products">
+                    <td>{{product.pid}}</td>
+                    <td><a ng-click="read(product.pid)" href="">{{product.name}}</a></td>
+                    <td>{{product.description}}</td>
+                    <td>{{product.category}}</td>
+                         <td>{{product.price}}</td>
+                </tr>
+                   <tr>
+                      <td colspan="5" style="text-align: center;">
+                         <button class="btn btn-outline-primary btn-sm" 
+                                     ng-click="getList(1)">처음</button> 
+                         <button   class="btn btn-outline-info btn-sm" 
+                                     ng-show="pager.groupNo>1" 
+                                     ng-click="getList(pager.startPageNo-1)">이전</button>
+                         <button ng-repeat="i in pageRange"
+                                    class="btn btn-sm {{(pager.pageNo==i)?'btn-danger':'btn-outline-success'}} {{!$last?'mr-1':''}}" 
+                                     ng-click="getList(i)">{{i}}</button>
+                         <button   class="btn btn-outline-info btn-sm" 
+                                     ng-show="pager.groupNo < pager.totalGroupNo" 
+                                     ng-click="getList(pager.endPageNo+1)">다음</button>
+                         <button class="btn btn-outline-primary btn-sm" 
+                                     ng-click="getList(pager.totalPageNo)">맨끝</button>
+                      </td>
+                   </tr>
+            </table>
+          </div>
+    </div>
+</div>
