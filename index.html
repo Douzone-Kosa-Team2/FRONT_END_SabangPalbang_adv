@@ -1,13 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app"> <!--  ng-app="app" 디렉티브 한 부분-->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
+
+    <!-- <base href="/"/> -->
+
+    <script src="app.js"></script>
+    <script src="appRoute.js"></script>
+    <!-- <script src="modules/exam03Module.js"></script>
+    <script src="modules/exam04Module.js"></script> -->
+  
 </head>
-<body>
-    home.html
-    hohoho
+<body ng-controller="mainController">
+    <div>
+        <div>사방팔방 관리자 페이지</div>
+        <div>
+            <div>
+                <button>로그아웃</button>
+            </div>
+
+        </div>
+        <div>
+            <ng-include src="'menu.html'"></ng-include>
+        </div>
+    </div>
+    <div>
+        <div>
+            <ng-view/>
+        </div>
+    </div>
+
 </body>
 </html>
