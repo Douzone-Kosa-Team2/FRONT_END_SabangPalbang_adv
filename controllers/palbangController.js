@@ -4,7 +4,6 @@ angular.module("app")
             $scope.getList(1);
         });
 
-
         $scope.view = "list";
         $scope.getView = () => {
             switch($scope.view){
@@ -50,4 +49,8 @@ angular.module("app")
                 $scope.view = "list";
             });
         };
+
+        
+        $scope.kindList=["좋아요 수", "조회수", "최신 순", "오래된 순"];
+        $scope.kindVal = "좋아요 수";
     });
