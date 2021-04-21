@@ -1,23 +1,23 @@
 <div class="card">
     <div class="card-header">
+        palbang_m/palbang_m_list.html
     </div>
     <div class="card-body">
         <div>
-          
             <table class="table table-striped table-bordered">
                 <tr>
-                    <th>상품번호</th>
-                    <th>상품명</th>
-                    <th>설명</th>
-                    <th>카테고리</th>
-                    <th>가격</th>
+                    <th>번호</th>
+                    <th>제목</th>
+                    <th>글쓴이</th>
+                    <th>날짜</th>
+                    <th>조회수</th>
                 </tr>
-                <tr ng-repeat="product in products">
-                    <td>{{product.pid}}</td>
-                    <td><a ng-click="read(product.pid)" href="">{{product.name}}</a></td>
-                    <td>{{product.description}}</td>
-                    <td>{{product.category}}</td>
-                         <td>{{product.price}}</td>
+                <tr ng-repeat="pal in palbang">
+                    <td>{{pal.palbang_id}}</td>
+                    <td><a ng-click="read(pal.palbang_id)" href="">{{pal.palbang_title}}</a></td>
+                    <td>{{pal.palbang_nickname}}</td>
+                    <td>{{pal.palbang_date | date:"yyyy.MM.dd"}}</td>
+                    <td>{{pal.palbang_viewcount}}</td>
                 </tr>
                    <tr>
                       <td colspan="5" style="text-align: center;">
