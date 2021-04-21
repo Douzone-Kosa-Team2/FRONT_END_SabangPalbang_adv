@@ -9,8 +9,7 @@ angular.module("app")
         $scope.getView = () => {
             switch($scope.view){
                 case "list": return "views/palbang_m/palbang_m_list.html";
-                case "read": return "views/palbang_m/palbang_m_read.html";
-                
+                case "read": return "views/palbang_m/palbang_m_read.html"; 
             }
         };
 
@@ -40,9 +39,6 @@ angular.module("app")
         $scope.battachUrl = (palbang_id) => {
             return palbangService.battachUrl(palbang_id);
           };
-      
-
-       
 
         $scope.cancel = () => {
             $scope.getList($scope.pager.pageNo);
