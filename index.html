@@ -25,12 +25,11 @@
 </head>
 <body ng-controller="mainController">
     <div>
-        <div>사방팔방 관리자 페이지</div>
+        <div class="header_logo">사방팔방 관리자 페이지</div> 
         <div>
-            <div>
-                <button>로그아웃</button>
+            <div class="main_auth_btn">
+                <button type="button" class="btn btn-info">로그아웃</button>
             </div>
-
         </div>
         <div>
             <ng-include src="'menu.html'"></ng-include>
@@ -41,6 +40,21 @@
             <ng-view/>
         </div>
     </div>
-
 </body>
 </html>
+<!-- 다 구현하면 css 폴더에 집어넣기 -->
+<style>
+    .header_logo{
+        background-color:beige;
+        font-size: 2em;
+        text-align:center;
+        padding: 30px;
+    }
+    .main_auth_btn{
+        /* background-color: burlywood; */
+        text-align:right;
+        margin: 20px;
+        margin-right: 100px;
+    }
+
+</style>
