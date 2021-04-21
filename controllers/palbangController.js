@@ -12,9 +12,6 @@ angular.module("app")
                 case "read": return "views/palbang_m/palbang_m_read.html"; 
             }
         };
-
-       
-
         $scope.getList = (pageNo) => {
             palbangService.list(pageNo)
                 .then((response) => {
@@ -31,7 +28,8 @@ angular.module("app")
         $scope.read = (palbang_id) =>{
             palbangService.read(palbang_id)
                 .then((response) => {
-                    $scope.palbang = response.data;
+                    $scope.palbang = response.data.palbang;
+                    $scope.palbanglist = response.data.palbanglist;
                     $scope.view = "read";
                 });
         };
@@ -45,7 +43,7 @@ angular.module("app")
             $scope.view = "list";
         };
 
-        $scope.deleteBoard = (palbang_id) => {
+        $scope.deletePalbang = (palbang_id) => {
             palbangService.delete(palbang_id)
             .then((response) => {
                 $scope.getList(1);

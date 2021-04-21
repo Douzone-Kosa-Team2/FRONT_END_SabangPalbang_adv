@@ -1,0 +1,35 @@
+<div class="card">
+    <div class="card-header">
+        palbang_m/palbang_m_read.html
+    </div>
+    <div class="card-body">
+        <div class="palbang_detail_header">
+            <div class="palbang_detail_header_1">
+                <h4>{{palbang.palbang_title}}</h4>
+            </div>
+            <div class="palbang_detail_header_2">
+                <h6>{{palbang.palbang_nickname}}님의방</h6>
+            </div>
+        </div>
+        
+        <div class="palbang_detail_content">
+            <div style="width:100%;" class="palbang_detail_content_mainImg">
+                <img style="width:830px; height: 460px;" src="resources/images/palbang_post/{{palbang.palbang_imgsname}}">
+            </div>
+            <hr/>
+            <div ng-repeat="palbangdetail in palbanglist">
+                <div class="palbang_detail_content_space">
+                    <div style="width:65%;" class="palbang_detail_content_spaceImg">
+                        <img style="width:100%;" src="resources/images/palbang_detail/{{palbangdetail.palbang_dimgsname}}">
+                    </div>
+                    <div style="width:35%; font-size:1em; margin-top:50px; margin-left:1em;" class="palbang_detail_content_space_txt">			
+                        {{palbangdetail.palbang_explain}}
+                    </div>
+                    
+                </div>
+            </div>
+            <button class="btn btn-primary btn-sm" ng-click="getList(pager.pageNo)">목록</button>
+            <button class="btn btn-primary btn-sm" ng-click="deletePalbang(palbang.palbang_id)">삭제</button>       
+        </div>
+    </div>
+</div>
