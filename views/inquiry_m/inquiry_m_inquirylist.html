@@ -1,10 +1,77 @@
+<style>
+    .listDesign {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .listDesign:hover {
+        color: white;
+        background-color: #00B0F0;
+        cursor: pointer;
+    }
+    /* td > a > img {
+        width:120px;
+    } */
+    .table td{
+        vertical-align: middle;
+    }
+    ul>li {
+        list-style: none;
+        padding: 2%;
+    }
+</style>
+
 <div class="card">
     <div class="card-header">
         상품에 대한 문의 목록 
-        => 여기서 문의 목록 드랍다운으로 내용 보이게할지 
-            새 페이지로 넘길지 뭐가 이쁠까나 
+        답변 상태에 select 탭 주기 
     </div>
     <div class="card-body">
+        <div>
+            <div class="mb-3">
+                <select ng-model="ansStatusVal">
+                    <option ng-repeat="ansStatus in ansStatusList">{{ansStatus}}</option>
+                </select>
+            </div>
+            <table class="table table-bordered ">
+                <thead>
+                    <tr class="thead-dark" style="text-align: center;">
+                        <th>번호</th>
+                        <th>문의종류</th>
+                        <th>답변상태</th>
+                        <th>제목</th>
+                        <th>문의자</th>
+                        <th>등록일</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- ng-repeat="inquiry in inquirylist | filter: {inquiry_ansstate: getAnsStatusVal()}"  -->
+                    <tr class="listDesign" ng-cloak ng-repeat="inquiry in inquirylist" ng-click="getInquiry(inquiry.inquiry_id)">
+                        <td>{{inquiry.inquiry_id}}</td>
+						<td>{{inquiry.inquiry_type}}</td>
+						<td>{{inquiry.inquiry_ansstate}}</td>
+						<td>{{inquiry.inquiry_title}}</td>
+						<td>{{inquiry.inquiry_writer}}</td>
+                        <td>{{inquiry.inquiry_date | date:"yyyy.MM.dd"}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="7" style="text-align: center;">
+                            <button class="btn btn-outline-primary btn-sm" ng-click="getInquiryList(1)">처음</button>
+                            <button class="btn btn-sm" ng-show="pager.groupNo>1"
+                                ng-click="getInquiryList(pager.startPageNo-1)">이전</button>
+                            <button ng-repeat="i in pageRange"
+                                class="btn btn-sm {{(pager.pageNo==i)?'btn-primary':'btn-light'}} {{!$last?'mr-1':''}}"
+                                ng-click="getInquiryList(i)">{{i}}</button>
+                            <button class="btn btn-sm" ng-show="pager.groupNo < pager.totalGroupNo"
+                                ng-click="getInquiryList(pager.endPageNo+1)">다음</button>
+                            <button class="btn btn-outline-primary btn-sm"
+                                ng-click="getInquiryList(pager.totalPageNo)">맨끝</button>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
 
     </div>
 </div>

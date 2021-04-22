@@ -1,8 +1,101 @@
+<style>
+    .palbang_detail_header {
+        display: flex;
+        flex-direction: column;
+        margin: 1%;
+    }
+
+    .palbang_detail_header_btn {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        border-bottom-color: black;
+    }
+
+    .palbang_detail_header_content {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .palbang_detail_content_mainImg {
+        width: 24%;
+    }
+
+    .palbang_detail_header_detail {
+        margin-left: 1%;
+    }
+
+    .palbang_detail_content_mainContent {
+        display: flex;
+        flex-direction: column;
+        width: 75%;
+        margin-left: 5%;
+
+    }
+
+    .palbang_detail_content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .palbang_detail_content_space {
+        display: flex;
+        flex-direction: row;
+        margin: 3%;
+    }
+
+    .palbang_detail_content_spaceImg {
+        width: 24%;
+    }
+
+    .palbang_detail_content_space_txt {
+        margin-left: 5%;
+    }
+</style>
 <div class="card">
     <div class="card-header">
-        하나의 문의 내용 (팝업창 대신)
+        문의 내용 - 읽고 답변도 남기는 곳 
     </div>
     <div class="card-body">
-
+        <div>
+            <div class="form-group">
+                <label>문의유형:</label>
+                <input class="form-control" ng-value="{{inquiry.inquiry_type}}" />
+            </div>
+            <div class="form-group">
+                <label>문의상태:</label>
+                <input class="form-control" ng-value=" {{inquiry.inquiry_ansstate}}" readonly/>
+            </div>
+            <div class="form-group">
+                <label>문의제목:</label>
+                <textarea class="form-control" ng-value="{{inquiry.inquiry_title}}"></textarea>
+            </div>
+            <div class="form-group">
+                <label>문의자:</label>
+                <textarea class="form-control" ng-value="{{inquiry.inquiry_writer}}"></textarea>
+            </div>
+            <div class="form-group">
+                <label>문의날짜:</label>
+                <textarea class="form-control" ng-value="{{inquiry.inquiry_date | date:'yyyy.MM.dd'}}"></textarea>
+            </div>
+            <div class="form-group">
+                <label>문의내용:</label>
+                <textarea class="form-control" ng-value="{{inquiry.explain}}"></textarea>
+            </div>
+            <div class="form-group">
+                <label>답변내용:</label>
+                <textarea class="form-control" ng-model="{{inquiry.anscontent}}"></textarea>
+                <div class="error" ng-show="inquiry.anscontent.$invalid && inquiry.anscontent.$dirty">
+                    <span ng-show="inquiry.anscontent.$error.required">
+                        작성한 답변 내용이 없습니다. 
+                    </span>
+                </div>
+            </div>
+         <!-- 답변 등록 버튼을 누르려면 Validate - 필수로 입력해야 함 -->
+            <button class="btn btn-primary btn-sm" ng-click="updateAnswer(inquiry.anscontent, inquiry.inquiry_id)">답변 등록</button>
+            <button class="btn btn-primary btn-sm" ng-click="getInquiryList(1, inquiry_sabangid)">목록</button>        
+        </div>
     </div>
 </div>
