@@ -1,49 +1,58 @@
 <style>
-.palbang_detail_header{
-    display: flex;
-    flex-direction: column;
-    margin: 1%;
-}
-.palbang_detail_header_btn{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-    border-bottom-color: black;
-}
-.palbang_detail_header_content{
-    display: flex;
-    flex-direction: row;
-}
-.palbang_detail_content_mainImg{
-    width: 24%;
-}
-.palbang_detail_header_detail{
-    margin-left: 1%;
-}
-.palbang_detail_content_mainContent{
-    display: flex;
-    flex-direction: column;
-    width: 75%;
-    margin-left: 5%;
-    
-}
-.palbang_detail_content{
-    display: flex;
-    flex-direction: column;
-}
-.palbang_detail_content_space{
-    display: flex;
-    flex-direction: row;
-    margin: 3%;
-}
-.palbang_detail_content_spaceImg{
-    width: 24%;
-}
-.palbang_detail_content_space_txt{
-    margin-left: 5%;
-}
+    .palbang_detail_header {
+        display: flex;
+        flex-direction: column;
+        margin: 1%;
+    }
+
+    .palbang_detail_header_btn {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        border-bottom-color: black;
+    }
+
+    .palbang_detail_header_content {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .palbang_detail_content_mainImg {
+        width: 24%;
+    }
+
+    .palbang_detail_header_detail {
+        margin-left: 1%;
+    }
+
+    .palbang_detail_content_mainContent {
+        display: flex;
+        flex-direction: column;
+        width: 75%;
+        margin-left: 5%;
+
+    }
+
+    .palbang_detail_content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .palbang_detail_content_space {
+        display: flex;
+        flex-direction: row;
+        margin: 3%;
+    }
+
+    .palbang_detail_content_spaceImg {
+        width: 24%;
+    }
+
+    .palbang_detail_content_space_txt {
+        margin-left: 5%;
+    }
 </style>
 <div class="card">
     <div class="card-header">
@@ -56,43 +65,46 @@
                 <div class="palbang_detail_content_mainImg">
                     <img style="width: 100%;" src="resources/images/palbang_post/{{palbang.palbang_imgsname}}">
                 </div>
-                <div class="palbang_detail_content_mainContent"> 
-                    
+                <div class="palbang_detail_content_mainContent">
+
                     <div class="palbang_detail_header_detail">
                         <h4>제목: {{palbang.palbang_title}}</h4>
+                        <br/>
                     </div>
                     <div class="palbang_detail_header_detail">
                         <h6>작성자: {{palbang.palbang_nickname}}</h6>
+                        <br/>
                     </div>
                     <div class="palbang_detail_header_detail">
                         <h6>작성일: {{palbang.palbang_date | date:"yyyy.MM.dd"}}</h6>
+                        <br/>
                     </div>
                     <div class="palbang_detail_header_detail">
                         <h6>좋아요수: {{palbang.palbang_likecount}}</h6>
+                        <br/>
                     </div>
                     <div class="palbang_detail_header_detail">
                         <h6>조회수: {{palbang.palbang_viewcount}}</h6>
                     </div>
                 </div>
             </div>
-  
+
         </div>
     </div>
     <div class="card-body">
         <div class="palbang_detail_content">
-            <hr/>
-            <div ng-repeat="palbangdetail in palbanglist">
-                <div class="palbang_detail_content_space">
-                    <div class="palbang_detail_content_spaceImg">
-                        <img style="width: 200px;" src="resources/images/palbang_detail/{{palbangdetail.palbang_dimgsname}}">
-                    </div>
-                    <div class="palbang_detail_content_space_txt">			
-                        {{palbangdetail.palbang_explain}}
-                    </div>  
+            <hr />
+
+            <div class="palbang_detail_content_space" ng-repeat="palbangdetail in palbanglist">
+                <div class="palbang_detail_content_spaceImg">
+                    <img style="width: 400px;"
+                        src="resources/images/palbang_detail/{{palbangdetail.palbang_dimgsname}}">
                 </div>
-                <br/>
+                <div class="palbang_detail_content_space_txt">
+                    <p>{{palbangdetail.palbang_explain}}</p>
+                </div>
+                <br />
             </div>
-                 
         </div>
     </div>
 </div>
