@@ -19,6 +19,10 @@
         list-style: none;
         padding: 2%;
     }
+    .needInquiry{
+        color:red;
+        font-weight: bold;
+    }
 </style>
 
 <div class="card">
@@ -42,17 +46,19 @@
                         <th>제목</th>
                         <th>문의자</th>
                         <th>등록일</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     <!-- ng-repeat="inquiry in inquirylist | filter: {inquiry_ansstate: getAnsStatusVal()}"  -->
-                    <tr class="listDesign" ng-cloak ng-repeat="inquiry in inquirylist" ng-click="getInquiry(inquiry.inquiry_id)">
-                        <td>{{inquiry.inquiry_id}}</td>
+                    <tr class="listDesign" ng-cloak ng-repeat="inquiry in inquirylist">
+                        <td ng-click="getInquiry(inquiry.inquiry_id)">{{inquiry.inquiry_id}}</td>
 						<td>{{inquiry.inquiry_type}}</td>
-						<td>{{inquiry.inquiry_ansstate}}</td>
-						<td>{{inquiry.inquiry_title}}</td>
+                        <td class="{{inquiry.inquiry_ansstate==='대기중'?'needInquiry':''}}">{{inquiry.inquiry_ansstate}}</td> <!-- 대기중 => 미답변 빨간 펴시 -->
+                        <td ng-click="getInquiry(inquiry.inquiry_id)" > {{inquiry.inquiry_title}}</td>
 						<td>{{inquiry.inquiry_writer}}</td>
                         <td>{{inquiry.inquiry_date | date:"yyyy.MM.dd"}}</td>
+                        <td><button class="btn btn-sm" ng-click="deleteInquiry(inquiry.inquiry_id, inquiry.inquiry_sabangid)">삭제</button></td>
                     </tr>
                     <tr>
                         <td colspan="7" style="text-align: center;">

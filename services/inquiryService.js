@@ -11,11 +11,14 @@ angular.module("app")
                 return $http.get(BASE_URL+"/"+sid, {params:{pageNo:pageNo}});
             },
             inquiry: function(inquiry_id){
-                console.log("http://localhost:8080/inquiry_m/inquiry/1");
                 return $http.get(BASE_URL+"/inquiry/"+inquiry_id);
             },
             answer: function(inquiryJson){
                 return $http.put(BASE_URL, inquiryJson);
+            },
+            delete: function(inquiry_id){
+                console.log("delete service------")
+                return $http.delete(BASE_URL+"/"+inquiry_id);
             }
            
         }
