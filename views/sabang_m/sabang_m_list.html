@@ -1,0 +1,83 @@
+<style>
+    .listDesign {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .listDesign:hover {
+        color: white;
+        background-color: #00B0F0;
+        cursor: pointer;
+    }
+    /* td > a > img {
+        width:120px;
+    } */
+    .table td{
+        vertical-align: middle;
+    }
+    ul>li {
+        list-style: none;
+        padding: 2%;
+    }
+</style>
+
+
+<div class="card">
+    <div class="card-header">
+        사방 게시물 목록
+    </div>
+    <div class="card-body">
+        <div>
+            <div class="mb-3">
+                <button class="btn btn-success btn-sm" ng-click="createSabangForm()">패키지생성</button>
+            </div>
+            <div class="mb-3">
+                <select ng-model="kindVal">
+                    <option ng-repeat="kindVal in kindList">{{kindVal}}</option>
+                </select>
+            </div>
+        </div>
+
+        <div>
+            <table class="table table-bordered ">
+                <thead>
+                    <tr class="thead-dark" style="text-align: center;">
+                        <th>대표 이미지</th>
+                        <th>사방패키지 이름</th>
+                        <th>원가</th>
+                        <th>할인가</th>
+                        <th>구매수</th>
+                        <th>조회수</th>
+                        <th>패키지상태</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="sab in sabang" class="listDesign" ng-click="read(sab.sabang_id)">
+                        <td><img src="resources/images/sabang_post/{{sab.sabang_imgsname}}"width="100px" height="100px"></td>
+                        <td>{{sab.sabang_name}}</td>
+                        <td>{{sab.sabang_price}}</td>
+                        <td>{{sab.sabang_saleprice}}</td>
+                        <td>{{sab.sabang_buycount}}</td>
+                        <td>{{sab.sabang_viewcount}}</td>
+                        <td>{{sab.sabang_state}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="7" style="text-align: center;">
+                            <button class="btn btn-outline-primary btn-sm" ng-click="getList(1)">처음</button>
+                            <button class="btn btn-sm" ng-show="pager.groupNo>1"
+                                ng-click="getList(pager.startPageNo-1)">이전</button>
+                            <button ng-repeat="i in pageRange"
+                                class="btn btn-sm {{(pager.pageNo==i)?'btn-primary':'btn-light'}} {{!$last?'mr-1':''}}"
+                                ng-click="getList(i)">{{i}}</button>
+                            <button class="btn btn-sm" ng-show="pager.groupNo < pager.totalGroupNo"
+                                ng-click="getList(pager.endPageNo+1)">다음</button>
+                            <button class="btn btn-outline-primary btn-sm"
+                                ng-click="getList(pager.totalPageNo)">맨끝</button>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>

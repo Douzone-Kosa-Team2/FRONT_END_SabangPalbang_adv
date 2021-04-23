@@ -1,0 +1,100 @@
+<style>
+    .palbang_detail_header {
+        display: flex;
+        flex-direction: column;
+        margin: 1%;
+    }
+
+    .palbang_detail_header_btn {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        border-bottom-color: black;
+    }
+
+    .palbang_detail_header_content {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .palbang_detail_content_mainImg {
+        width: 24%;
+    }
+
+    .palbang_detail_header_detail {
+        margin-left: 1%;
+    }
+
+    .palbang_detail_content_mainContent {
+        display: flex;
+        flex-direction: column;
+        width: 75%;
+        margin-left: 5%;
+
+    }
+
+    .palbang_detail_content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .palbang_detail_content_space {
+        display: flex;
+        flex-direction: row;
+        margin: 3%;
+    }
+
+    .palbang_detail_content_spaceImg {
+        width: 24%;
+    }
+
+    .palbang_detail_content_space_txt {
+        margin-left: 5%;
+    }
+</style>
+<div class="card">
+    <div class="card-header">
+        문의 답변하기
+        <button class="ml-3 btn btn-primary btn-sm" ng-click="getInquiryList(1, inquiry.inquiry_sabangid)">목록</button>        
+    </div>
+    <div class="card-body">
+        <form name="inquiryForm" novalidate ng-submit="updateAnswer()">
+            <div class="form-group">
+                <label>문의유형:</label>
+                <input class="form-control" ng-value="inquiry.inquiry_type" readonly/>
+            </div>
+            <div class="form-group">
+                <label>문의상태:</label>
+                <input class="form-control" ng-value="inquiry.inquiry_ansstate" readonly/>
+            </div>
+            <div class="form-group">
+                <label>문의제목:</label>
+                <input class="form-control" ng-value="inquiry.inquiry_title" readonly/>
+            </div>
+            <div class="form-group">
+                <label>문의자:</label>
+                <input class="form-control" ng-value="inquiry.inquiry_writer" readonly/>
+            </div>
+            <div class="form-group">
+                <label>문의날짜:</label>
+                <input class="form-control" ng-value="inquiry.inquiry_date | date:'yyyy.MM.dd'" readonly/>
+            </div>
+            <div class="form-group">
+                <label>문의내용:</label>
+                <input class="form-control" ng-value="inquiry.inquiry_explain" readonly/>
+            </div>
+            <div class="form-group">
+                <label>답변내용:</label>
+                <textarea name="anscontent" class="form-control" ng-model="inquiry.inquiry_anscontent" ng-required="true"></textarea>
+                <div class="error" ng-show="inquiryForm.anscontent.$invalid && inquiryForm.anscontent.$dirty">
+                    <span ng-show="inquiryForm.anscontent.$error.required">
+                        고객의 문의 사항을 답변해주세요.
+                    </span>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-sm" ng-disabled="inquiryForm.$invalid">답변 등록</button>
+        </form>
+    </div>
+</div>
