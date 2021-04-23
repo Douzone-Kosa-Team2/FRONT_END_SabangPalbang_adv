@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">
-        사방 패키지 생성.html
+        사방 패키지 업데이트.html
     </div>
     <div class="card-body">
         <div>
@@ -17,12 +17,22 @@
                 <input class="form-control" ng-model="sabang.sabang_saleprice"/>
             </div>
             <div class="form-group">
+                <label>상품 상태:</label>
+                <select id="sabang_state"
+                    class="form-control"
+                    ng-options="sabang_state for sabang_state in sabang_states"
+                    ng-change="getState()"
+                    ng-model="sabang_state"
+                    style="width:200px"></select> 
+            </div>
+            <div class="form-group">
                 <label>대표사진 첨부:</label>
                 <br/>
+                <img src="{{sattachUrl(sabang.sabang_id)}}" width="200" height="200" class="mb-2"/>
                 <input id="sattach" type="file" class="form-control-file" />
             </div>
-            <button class="btn btn-primary btn-sm" ng-click="createSabang(sabang)">등록</button>
-            <button class="btn btn-primary btn-sm" ng-click="cancel()">취소</button>        
+            <button class="btn btn-primary btn-sm" ng-click="updateSabang(sabang)">등록</button>
+            <button class="btn btn-primary btn-sm" ng-click="cancelUpdate(sabang.sabang_id)">취소</button>        
         </div>
     </div>
 </div>
