@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="app"> <!--  ng-app="app" 디렉티브 한 부분-->
+<html lang="en" ng-app="app">
+<!--  ng-app="app" 디렉티브 한 부분-->
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,50 +20,55 @@
     <script src="app.js"></script>
     <script src="appRoute.js"></script>
 
+    <script src="controllers/authController.js"></script>
+    <script src="services/authService.js"></script>
+
     <script src="controllers/sabangController.js"></script>
-    <script src="services/sabangService.js"></script>   
-    
+    <script src="services/sabangService.js"></script>
+
     <script src="controllers/palbangController.js"></script>
-    <script src="services/palbangService.js"></script>  
+    <script src="services/palbangService.js"></script>
     <script src="controllers/orderController.js"></script>
-    <script src="services/orderService.js"></script>      
+    <script src="services/orderService.js"></script>
 
-    <script src="controllers/inquiryController.js"></script>    
-    <script src="services/inquiryService.js"></script>    
-
+    <script src="controllers/inquiryController.js"></script>
+    <script src="services/inquiryService.js"></script>
 </head>
+
 <body ng-controller="mainController">
-    <div>
-        <div class="header_logo">사방팔방 관리자 페이지</div> 
-        <div>
-            <div class="main_auth_btn">
-                <button type="button" class="btn btn-info">로그아웃</button>
-            </div>
-        </div>
-        <div>
-            <ng-include src="'menu.html'"></ng-include>
-        </div>
+
+    <div class="header_logo">
+        사방팔방 관리자 페이지
     </div>
-    <div>
-        <div>
-            <ng-view/>
+
+
+    <div ng-show="uid">
+        <div class="main_auth_btn">
+            <button type="button" class="btn btn-info" ng-click="logout()">로그아웃</button>
         </div>
+        <ng-include src="'menu.html'"></ng-include>
     </div>
+
+    <div>
+        <ng-view />
+    </div>
+
 </body>
+
 </html>
 <!-- 다 구현하면 css 폴더에 집어넣기 -->
 <style>
-    .header_logo{
-        background-color:beige;
+    .header_logo {
+        background-color: beige;
         font-size: 2em;
-        text-align:center;
+        text-align: center;
         padding: 30px;
     }
-    .main_auth_btn{
+
+    .main_auth_btn {
         /* background-color: burlywood; */
-        text-align:right;
+        text-align: right;
         margin: 20px;
         margin-right: 100px;
     }
-
 </style>

@@ -29,7 +29,7 @@ angular.module("app")
             },
             createProduct: function(formData) {
                 const promise = $http.post(BASE_URL + "/detail", formData, {headers:{"Content-Type":undefined}});
-                return promise;
+                return promise;                                            
             },
             updateProduct: function(formData) {
                 const promise = $http.put(BASE_URL + "/detail", formData, {headers:{"Content-Type":undefined}});
