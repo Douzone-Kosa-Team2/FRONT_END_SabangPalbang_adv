@@ -32,16 +32,6 @@ angular.module("app")
                     $scope.view = "read";
                 });
         };
-
-        $scope.battachUrl = (palbang_id) => {
-            return palbangService.battachUrl(palbang_id);
-          };
-
-        $scope.cancel = () => {
-            $scope.getList($scope.pager.pageNo);
-            $scope.view = "list";
-        };
-
         $scope.deletePalbang = (palbang_id) => {
             palbangService.delete(palbang_id)
             .then((response) => {

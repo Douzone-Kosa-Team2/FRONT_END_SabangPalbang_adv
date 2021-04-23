@@ -1,0 +1,25 @@
+<div class="card">
+    <div class="card-header">
+        주문 업데이트
+    </div>
+    <div class="card-body">
+        <div>
+            <div class="form-group">
+                <label>배송상태:</label>
+                <input class="form-control" ng-model="order.order_state"/>
+            </div>
+            <div class="form-group">
+                <label>Phone:</label>
+                <input class="form-control" ng-model="order.order_phone"/>
+            </div>
+            <div class="form-group">
+                <label>주소: </label>
+                <input class="form-control" ng-model="order.order_roadaddress"/>
+                <input class="form-control" ng-model="order.order_detailaddress"/>
+            </div>
+           
+            <button class="btn btn-primary btn-sm" ng-click="updateOrder(order)">수정</button>
+            <button class="btn btn-primary btn-sm" ng-click="cancel()">취소</button>        
+        </div>
+    </div>
+</div>
