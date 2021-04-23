@@ -8,6 +8,7 @@ angular.module("app")
                 return $http.get(BASE_URL, {params:{pageNo:pageNo}});
             },
             inquirylist: function(pageNo=1, sid) {
+                /* 애초에 정렬해서 가져오기 => 대기중 -> 답변완료 순으로  */
                 return $http.get(BASE_URL+"/"+sid, {params:{pageNo:pageNo}});
             },
             inquiry: function(inquiry_id){
@@ -17,9 +18,7 @@ angular.module("app")
                 return $http.put(BASE_URL, inquiryJson);
             },
             delete: function(inquiry_id){
-                console.log("delete service------")
                 return $http.delete(BASE_URL+"/"+inquiry_id);
             }
-           
         }
     });

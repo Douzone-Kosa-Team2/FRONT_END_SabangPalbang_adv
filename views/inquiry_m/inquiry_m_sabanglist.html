@@ -23,8 +23,11 @@
         color:red;
         font-weight: bold;
     }
+    .completeInquiry{
+        color:cornflowerblue;
+        font-weight: bold;
+    }
 </style>
-
 
 <div class="card">
     <div class="card-header">
@@ -55,7 +58,7 @@
                         <td><img src="resources/images/sabang_post/{{sabang.sabang_imgsname}}"width="100px" height="100px"></td>
                         <td>{{sabang.sabang_name}}</td>
                         <td>{{sabang.totalInquiryNum}}</td>
-                        <td class="{{sabang.noAnsInquiryNum>0?'needInquiry':''}}">{{sabang.noAnsInquiryNum}}</td>
+                        <td class="{{sabang.noAnsInquiryNum>0?'needInquiry':'completeInquiry'}}">{{sabang.noAnsInquiryNum}}</td>
                         <td>{{sabang.sabang_state}} </td>
                     </tr>
                     <tr>
