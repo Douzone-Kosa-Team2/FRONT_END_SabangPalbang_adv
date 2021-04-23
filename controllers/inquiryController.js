@@ -28,14 +28,18 @@ angular.module("app")
         };
 
         // 정렬 조건 바꾸기 : 문의 많은 순 
-        $scope.kindList=["총문의수", "미답변수", "기답변수"];
-        $scope.kindVal = "총문의수";
-
+        $scope.kindList=["구매수", "조회수", "높은 가격순", "낮은 가격순"];
+        $scope.kindVal = "구매수";
         
+        $scope.ansStatusList = ["전체답변", "대기중", "답변완료"];
+        $scope.ansstate = "전체답변"; //초기화 
+
         // 사방에 속한 문의 목록 가져오기 
-        $scope.getInquiryList = (pageNo, sid) => {
+        $scope.getInquiryList = (pageNo, sid, ansstate) => {
             $scope.sid = sid;
-            inquiryService.inquirylist(pageNo, sid)
+            $scope.ansstate = ansstate;
+            console.log("constroller: " + ansstate);
+            inquiryService.inquirylist(pageNo, sid, ansstate)
                 .then((response) => {
                     $scope.pager = response.data.pager;
                     $scope.inquirylist = response.data.inquirylist;
@@ -45,15 +49,6 @@ angular.module("app")
                     }
                     $scope.view = "inquirylist";
                 });
-        };
-
-        $scope.ansStatusList = ["전체답변", "대기중", "답변완료"];
-        $scope.selectVal = "전체답변"; //초기화 
-
-        $scope.getAnsStatusVal = (selectVal) => {
-            /* 하나의 페이지 안에서 필터링을 하고 있다. 
-            전체 리스트를 필터링해서 애초에 가져와야 한다  */
-            return selectVal === "전체답변"? "" : selectVal;  
         };
 
         // 문의 내역 읽기 

@@ -7,9 +7,9 @@ angular.module("app")
             sabanglist: function(pageNo=1) {
                 return $http.get(BASE_URL, {params:{pageNo:pageNo}});
             },
-            inquirylist: function(pageNo=1, sid) {
-                /* 애초에 정렬해서 가져오기 => 대기중 -> 답변완료 순으로  */
-                return $http.get(BASE_URL+"/"+sid, {params:{pageNo:pageNo}});
+            inquirylist: function(pageNo=1, sid, ansstate) {
+                console.log("service에서 셋 중 하나 머나오니 : " + ansstate);
+                return $http.get(BASE_URL+"/"+sid, {params:{pageNo:pageNo, ansstate:ansstate}});
             },
             inquiry: function(inquiry_id){
                 return $http.get(BASE_URL+"/inquiry/"+inquiry_id);

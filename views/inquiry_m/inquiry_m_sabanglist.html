@@ -41,7 +41,6 @@
                 </select>
             </div>
         </div>
-
         <div>
             <table class="table table-bordered ">
                 <thead>
@@ -54,7 +53,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-cloak ng-repeat="sabang in sabanglist" class="listDesign" ng-click="getInquiryList(1, sabang.sabang_id)">
+                    <tr ng-cloak ng-repeat="sabang in sabanglist" class="listDesign" ng-click="getInquiryList(1, sabang.sabang_id, '전체답변')">
                         <td><img src="C:/Users/ant94/git/SabangPalbang_upload/images/sabang_post/{{sabang.sabang_imgsname}}"width="100px" height="100px"></td>
                         <td>{{sabang.sabang_name}}</td>
                         <td>{{sabang.totalInquiryNum}}</td>

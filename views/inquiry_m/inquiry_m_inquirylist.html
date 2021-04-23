@@ -50,9 +50,11 @@
         </div>
         <div ng-if="inquirylist.length > 0"> <!-- 총 문의 개수가 0개 이상일 때 -->
             <div class="mb-3">
-                <select ng-model="selectVal" 
-                        ng-options="status for status in ansStatusList">
-                    {{status}}
+                <select  ng-model="status" >
+                    <option ng-repeat="status in ansStatusList">
+                         {{status}}
+                         <!-- ng-click="getInquiryList(1, sid, status)" -->
+                    </option>
                 </select>
             </div>
             <table class="table table-bordered">
@@ -68,8 +70,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="listDesign" 
-                            ng-repeat="inquiry in inquirylist | filter: {inquiry_ansstate: getAnsStatusVal(selectVal)}" 
+                      <tr class="listDesign" 
+                            ng-repeat="inquiry in inquirylist" 
                             ng-click="getInquiry(inquiry.inquiry_id)" 
                             ng-cloak>
                         <td>{{inquiry.inquiry_id}}</td>
@@ -85,16 +87,16 @@
                     </tr>
                     <tr>
                         <td colspan="7" style="text-align: center;">
-                            <button class="btn btn-outline-primary btn-sm" ng-click="getInquiryList(1, sid)">처음</button>
+                            <button class="btn btn-outline-primary btn-sm" ng-click="getInquiryList(1, sid, ansstate)">처음</button>
                             <button class="btn btn-sm" ng-show="pager.groupNo>1"
-                                ng-click="getInquiryList(pager.startPageNo-1, sid)">이전</button>
+                                ng-click="getInquiryList(pager.startPageNo-1, sid, ansstate)">이전</button>
                             <button ng-repeat="i in pageRange"
                                 class="btn btn-sm {{(pager.pageNo==i)?'btn-primary':'btn-light'}} {{!$last?'mr-1':''}}"
-                                ng-click="getInquiryList(i, sid)">{{i}}</button>
+                                ng-click="getInquiryList(i, sid, ansstate)">{{i}}</button>
                             <button class="btn btn-sm" ng-show="pager.groupNo < pager.totalGroupNo"
-                                ng-click="getInquiryList(pager.endPageNo+1, sid)">다음</button>
+                                ng-click="getInquiryList(pager.endPageNo+1, sid, ansstate)">다음</button>
                             <button class="btn btn-outline-primary btn-sm"
-                                ng-click="getInquiryList(pager.totalPageNo, sid)">맨끝</button>
+                                ng-click="getInquiryList(pager.totalPageNo, sid, ansstate)">맨끝</button>
                         </td>
                     </tr>
                 </tbody>
