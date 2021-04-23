@@ -56,8 +56,8 @@
         <div class="order_detail_header_btn">
             <div><button class="btn btn-primary btn-sm m-3" ng-click="getList(pager.pageNo)">목록</button></div>
             <div>
-                <button class="btn btn-success btn-sm" ng-click="updateOrderForm()">수정</button>
-                <button class="btn btn-danger btn-sm" ng-click="deleteOrder(order.order_id)">삭제</button>
+                <button class="btn btn-success btn-sm" ng-click="updateOrderForm()">주문수정</button>
+                <button class="btn btn-danger btn-sm" ng-click="deleteOrder(order.order_id)">주문삭제</button>
             </div>
             
         </div>
@@ -66,38 +66,48 @@
                         <img style="width: 100%; height:80%;" src="resources/images/sabang_post/{{sabang.sabang_imgsname}}">
                     </div>
                     <div class="order_detail_content_mainContent mt-5">
+                       
+                            <div class="order_detail_header_detail">
+                                <h1>주문번호: {{order.order_id}} </h1>
+                                <br/>
+                            </div>
+                            <div class="order_detail_header_detail">
+                                <h4>E-mail: {{Memail.member_email}}</h4>
+                                <br/>
+                            </div>
+                            <div class="order_detail_header_detail">
+                                <h4>성함: {{Memail.member_name}}</h4>
+                                <br/>
+                            </div>
+                            <div class="order_detail_header_detail">
+                                <h4>Phone: {{order.order_phone}}</h4>
+                                <br/>
+                            </div>
+                            <div class="order_detail_header_detail">
+                                <h4>우편번호: {{order.order_zipcode}}</h4>
+                                <br/>
+                                <h4>주소: {{order.order_roadaddress}} - {{order.order_detailaddress}}</h4>
+                                <br/>
+                            </div>
+                            
 
-                        <div class="order_detail_header_detail">
-                            <h1>주문번호: {{order.order_id}} </h4>
-                            <br/>
-                        </div>
-                        <div class="order_detail_header_detail">
-                            <h4>E-mail: {{Memail.member_email}}</h6>
-                            <br/>
-                        </div>
-                        <div class="order_detail_header_detail">
-                            <h4>성함: {{Memail.member_name}}</h6>
-                            <br/>
-                        </div>
-                        <div class="order_detail_header_detail">
-                            <h4>주소: {{order.order_roadaddress}} - {{order.order_detailaddress}}</h6>
-                            <br/>
-                        </div>
-                        <div class="order_detail_header_detail">
-                            <h4>결제금액: {{order.order_price | number:0}}원</h6>
-                            <br/>
-                        </div>
-                        <div class="order_detail_header_detail">
-                            <h4>배송상태: {{order.order_state}}</h6>
-                            <br/>
-                        </div>
-                        <div class="order_detail_header_detail">
-                            <h4>결제방법: {{order.order_payment}}</h6>
-                            <br/>
-                        </div>
-                        <div class="order_detail_header_detail">
-                            <h4>은행코드: {{order.order_bankcode}}</h6>
-                        </div>
+                      
+                            <div class="order_detail_header_detail">
+                                <h4>결제금액: {{order.order_price | number:0}}원</h4>
+                                <br/>
+                            </div>
+                            <div class="order_detail_header_detail">
+                                <h4>배송상태: {{order.order_state}}</h4>
+                                <br/>
+                            </div>
+                            <div class="order_detail_header_detail">
+                                <h4>결제방법: {{order.order_payment}}</h4>
+                                <br/>
+                            </div>
+                            <div class="order_detail_header_detail">
+                                <h4>은행코드: {{order.order_bankcode}}</h4>
+                            </div>
+                        
                     </div>
                 </div>
             </div>
@@ -112,7 +122,32 @@
                         src="resources/images/sabang_detail/{{prod.product_imgsname}}">
                 </div>
                 <div class="order_detail_content_space_txt">
-                    <p>{{prod.product_explain1}}</p>
+                    <div>
+                        <h4>상품ID: {{prod.product_id}}</h4>
+                        <br/>
+                    </div>
+                    <div>
+                    <h4>상품이름: {{prod.product_name}}</h4>
+                    <br/>
+                    </div>
+                    <div>
+                        <h4>상품가격: {{prod.product_price | number:0}}원</h4>
+                        <br/>
+                    </div>
+                    <div>
+                        <h4>상품판매: {{prod.product_buycount}}개</h4>
+                        <br/>
+                        <br/>
+                        <br/>
+                    </div>
+                    <div>
+                         <h6>{{prod.product_explain1}}</h6>
+                         <br/>
+                    </div>
+                    <div>
+                        <h6>{{prod.product_explain2}}</h6>
+                        <br/>
+                   </div>
                 </div>
                 <br />
             </div>

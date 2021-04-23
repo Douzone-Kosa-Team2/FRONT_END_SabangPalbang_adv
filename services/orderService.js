@@ -13,7 +13,7 @@ angular.module("app")
                 return promise;
             },
             update: function(formData) {
-                const promise = $http.put(BASE_URL, formData);
+                const promise = $http.put(BASE_URL, formData, {headers:{"Content-Type":undefined}});
                 return promise;
             },
             delete: function(order_id) {
