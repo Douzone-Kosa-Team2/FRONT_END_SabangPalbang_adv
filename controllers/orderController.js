@@ -16,13 +16,49 @@ angular.module("app")
             orderService.list(pageNo)
                 .then((response) => {
                     $scope.pager = response.data.pager;
+                    $scope.waitForPaypager = response.data.waitForPaypager;
+                    $scope.paySuccesspager = response.data.paySuccesspager;
+                    $scope.postReadypager = response.data.postReadypager;
+                    $scope.postingpager = response.data.postingpager;
+                    $scope.postSuccesspager = response.data.postSuccesspager;
                     $scope.orders = response.data.orders;
                     $scope.dateUpList = response.data.dateUpList;
                     $scope.dateDownList = response.data.dateDownList;
+                    $scope.waitForPayList = response.data.waitForPayList;
+                    $scope.paySuccessList = response.data.paySuccessList;
+                    $scope.postReadyList = response.data.postReadyList;
+                    $scope.postingList = response.data.postingList;
+                    $scope.postSuccessList = response.data.postSuccessList;
                     $scope.pageRange = [];
                     for(var i=$scope.pager.startPageNo; i<=$scope.pager.endPageNo; i++){
                         $scope.pageRange.push(i)
                     }
+
+                    $scope.waitForPaypageRange = [];
+                    for(var i=$scope.waitForPaypager.startPageNo; i<=$scope.waitForPaypager.endPageNo; i++){
+                        $scope.waitForPaypageRange.push(i)
+                    }
+
+                    $scope.paySuccesspageRange = [];
+                    for(var i=$scope.paySuccesspager.startPageNo; i<=$scope.paySuccesspager.endPageNo; i++){
+                        $scope.paySuccesspageRange.push(i)
+                    }
+
+                    $scope.postReadypageRange = [];
+                    for(var i=$scope.postReadypager.startPageNo; i<=$scope.postReadypager.endPageNo; i++){
+                        $scope.postReadypageRange.push(i)
+                    }
+
+                    $scope.postingpageRange = [];
+                    for(var i=$scope.postingpager.startPageNo; i<=$scope.postingpager.endPageNo; i++){
+                        $scope.postingpageRange.push(i)
+                    }
+
+                    $scope.postSuccesspageRange = [];
+                    for(var i=$scope.postSuccesspager.startPageNo; i<=$scope.postSuccesspager.endPageNo; i++){
+                        $scope.postSuccesspageRange.push(i)
+                    }
+
                     $scope.view = "list";
                 });
         };
