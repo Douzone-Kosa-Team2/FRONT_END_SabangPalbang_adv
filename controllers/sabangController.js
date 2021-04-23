@@ -1,5 +1,5 @@
 angular.module("app")
-    .controller("sabangController", function($rootScope ,$scope, sabangService){
+    .controller("sabangController", function($rootScope ,$scope, sabangService,$window){
         $scope.$on("$routeChangeSuccess", () => {
             $scope.getList(1);
         });
@@ -118,6 +118,10 @@ angular.module("app")
             return sabangService.sattachUrl(sabang_id);
         };
 
+        $scope.pattachUrl = (product_id) => {
+            return sabangService.pattachUrl(product_id);
+        };
+
         $scope.cancel = () => {
             $scope.getList($scope.pager.pageNo);
             $scope.view = "list";
@@ -131,12 +135,20 @@ angular.module("app")
                 });
         };
 
-        $scope.deleteSabang = (sabang_id) => {
+        //사방 패키지 삭제
+        // 삭제 전 확인 - 정말 삭제하시겠습니까 
+        $scope.checkSabang = (sabang_id,sabang_name,pageNo) => {
+            var result = $window.confirm("정말" + sabang_name +" 삭제하시겠습니까?");
+            if(result){
+                $scope.deleteSabang(sabang_id,pageNo);
+            }
+        };
+        // 사방 삭제하기 
+        $scope.deleteSabang = (sabang_id,pageNo) => {
             sabangService.deleteSabang(sabang_id)
-            .then((response) => {
-                $scope.getList(1);
-                $scope.view = "list";
-            });
+                .then(() => {
+                    $scope.getList(pageNo);
+                });
         };
         
         $scope.kindList=["구매수", "조회수", "높은 가격순", "낮은 가격순"];
@@ -166,7 +178,6 @@ angular.module("app")
                 
                 sabangService.createProduct(formData)
                 .then((response) => {
-                    console.log("check");
                     $scope.read(response.data.sabang_id);
                 });
             }
@@ -197,29 +208,30 @@ angular.module("app")
                 
                 sabangService.updateProduct(formData)
                     .then((response) => {
-                        console.log(response);
-                        console.log(""+response.data.sabang_id);
-                        sabangService.read(response.data.sabang_id)
-                        .then((response) => {
-                            $scope.sabang = response.data.sabang;
-                            $scope.productlist = response.data.productlist;
-                            $scope.view = "read";
-                        });
+                        $scope.read(response.data.sabang_id);
                     });
             }
         };
-        // 상품 삭제
-        $scope.deleteProduct = (product_id) => {
-            sabangService.deleteProduct(product_id)
-            .then((response) => {
-                console.log(response);
-                console.log(""+response.data.sabang_id);
-                sabangService.read(response.data.sabang_id)
-                .then((response) => {
-                    $scope.sabang = response.data.sabang;
-                    $scope.productlist = response.data.productlist;
-                    $scope.view = "read";
-                });
-            });
+        // // 상품 삭제
+        // $scope.deleteProduct = (product_id) => {
+        //     sabangService.deleteProduct(product_id)
+        //     .then((response) => {
+        //         $scope.read(response.data.sabang_id);
+        //     });
+        // };
+        // 삭제 전 확인 - 정말 삭제하시겠습니까 
+        $scope.checkProduct = (product_id,product_name,sabang_id) => {
+            var result = $window.confirm("정말" + product_name +" 삭제하시겠습니까?");
+            if(result){
+                $scope.deleteProduct(product_id,sabang_id);
+            }
         };
+        // 사방 삭제하기 
+        $scope.deleteProduct = (product_id,sabang_id) => {
+            sabangService.deleteProduct(product_id)
+                .then(() => {
+                    $scope.read(sabang_id);
+                });
+        };
+        
     });

@@ -98,4 +98,7 @@ angular.module("app")
                 });
         };
 
+        $scope.sattachUrl = (sabang_id) => {
+            return inquiryService.sattachUrl(sabang_id);
+        };
     });

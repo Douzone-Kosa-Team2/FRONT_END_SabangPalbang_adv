@@ -19,6 +19,12 @@ angular.module("app")
             delete: function(order_id) {
                 const promise = $http.delete(BASE_URL + "/" + order_id);
                 return promise;
+            },
+            sattachUrl: function(sabang_id) {
+                return BASE_URL + "/sattach/" + sabang_id;
+            },
+            pattachUrl: function(product_id) {
+                return BASE_URL + "/pattach/" + product_id;
             }
         }
     });
