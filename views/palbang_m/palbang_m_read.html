@@ -59,11 +59,11 @@
         <div class="palbang_detail_header">
             <div class="palbang_detail_header_btn">
                 <button class="btn btn-primary btn-sm m-3" ng-click="getList(pager.pageNo)">목록</button>
-                <button class="btn btn-danger btn-sm m-3" ng-click="deletePalbang(palbang.palbang_id)">삭제</button>
+                <button class="btn btn-danger btn-sm m-3" ng-click="checkDelete(palbang.palbang_id,palbang.palbang_title,pager.pageNo)">삭제</button>
             </div>
             <div class="palbang_detail_header_content m-3">
                 <div class="palbang_detail_content_mainImg">
-                    <img style="width: 100%;" src="C:/Users/ant94/git/SabangPalbang_upload/images/palbang_post/{{palbang.palbang_imgsname}}">
+                    <img style="width: 100%;" src="{{palattachUrl(palbang.palbang_id)}}">
                 </div>
                 <div class="palbang_detail_content_mainContent">
 
@@ -98,7 +98,7 @@
             <div class="palbang_detail_content_space" ng-repeat="palbangdetail in palbanglist">
                 <div class="palbang_detail_content_spaceImg">
                     <img style="width: 400px;"
-                        src="C:/Users/ant94/git/SabangPalbang_upload/images/palbang_detail/{{palbangdetail.palbang_dimgsname}}">
+                        src="{{palDattachUrl(palbangdetail.palbang_detailno)}}">
                 </div>
                 <div class="palbang_detail_content_space_txt">
                     <p>{{palbangdetail.palbang_explain}}</p>

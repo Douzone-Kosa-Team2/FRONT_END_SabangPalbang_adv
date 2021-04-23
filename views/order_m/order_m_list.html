@@ -51,6 +51,7 @@
         </div>
 
         <div>
+            <!-- 주문번호 -->
             <div ng-show="kindVal=='주문번호'">
                 <table class="table table-bordered">
                     <thead>
@@ -88,7 +89,8 @@
                 </table>
 
             </div>
-            <div  ng-show="kindVal=='날짜'">
+            <!-- 날짜 -->
+            <div ng-show="kindVal=='날짜'">
                 <table ng-show="date_state=='최신 순'" class="table table-bordered ">
                     <thead>
                         <tr class="thead-dark" style="text-align: center;">
@@ -157,6 +159,196 @@
                         </tr>
                     </tbody>
                 </table>       
+            </div>
+
+            <!-- 배송상태 -->
+            <div ng-show="kindVal=='배송상태'">
+                <table ng-show="order_state=='결제대기중'" class="table table-bordered ">
+                    <thead>
+                        <tr class="thead-dark" style="text-align: center;">
+                            <th>주문번호</th>
+                            <th>주문자 ID</th>
+                            <th>핸드폰</th>
+                            <th>주문날짜</th>
+                            <th>배송상태</th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <tr ng-repeat="orde in waitForPayList" class="listDesign" ng-click="read(orde.order_id)">
+                            <td>{{orde.order_id}}</td>
+                            <td>{{orde.order_memberid}}</td>
+                            <td>{{orde.order_phone}}</td>
+                            <td>{{orde.order_date | date:"yyyy.MM.dd HH:mm:ss"}}</td>
+                            <td>{{orde.order_state}}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="5" style="text-align: center;">
+                                <button class="btn btn-outline-primary btn-sm" ng-click="getList(1)">처음</button>
+                                <button class="btn btn-sm" ng-show="waitForPaypager.groupNo>1"
+                                    ng-click="getList(waitForPaypager.startPageNo-1)">이전</button>
+                                <button ng-repeat="i in waitForPaypageRange"
+                                    class="btn btn-sm {{(waitForPaypager.pageNo==i)?'btn-primary':'btn-light'}} {{!$last?'mr-1':''}}"
+                                    ng-click="getList(i)">{{i}}</button>
+                                <button class="btn btn-sm" ng-show="waitForPaypager.groupNo < waitForPaypager.totalGroupNo"
+                                    ng-click="getList(waitForPaypager.endPageNo+1)">다음</button>
+                                <button class="btn btn-outline-primary btn-sm"
+                                    ng-click="getList(waitForPaypager.totalPageNo)">맨끝</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table ng-show="order_state=='결제완료'" class="table table-bordered ">
+                    <thead>
+                        <tr class="thead-dark" style="text-align: center;">
+                            <th>주문번호</th>
+                            <th>주문자 ID</th>
+                            <th>핸드폰</th>
+                            <th>주문날짜</th>
+                            <th>배송상태</th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <tr ng-repeat="orde in paySuccessList" class="listDesign" ng-click="read(orde.order_id)">
+                            <td>{{orde.order_id}}</td>
+                            <td>{{orde.order_memberid}}</td>
+                            <td>{{orde.order_phone}}</td>
+                            <td>{{orde.order_date | date:"yyyy.MM.dd HH:mm:ss"}}</td>
+                            <td>{{orde.order_state}}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="5" style="text-align: center;">
+                                <button class="btn btn-outline-primary btn-sm" ng-click="getList(1)">처음</button>
+                                <button class="btn btn-sm" ng-show="paySuccesspager.groupNo>1"
+                                    ng-click="getList(paySuccesspager.startPageNo-1)">이전</button>
+                                <button ng-repeat="i in paySuccesspageRange"
+                                    class="btn btn-sm {{(paySuccesspager.pageNo==i)?'btn-primary':'btn-light'}} {{!$last?'mr-1':''}}"
+                                    ng-click="getList(i)">{{i}}</button>
+                                <button class="btn btn-sm" ng-show="paySuccesspager.groupNo < paySuccesspager.totalGroupNo"
+                                    ng-click="getList(paySuccesspager.endPageNo+1)">다음</button>
+                                <button class="btn btn-outline-primary btn-sm"
+                                    ng-click="getList(paySuccesspager.totalPageNo)">맨끝</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table ng-show="order_state=='배송준비중'" class="table table-bordered ">
+                    <thead>
+                        <tr class="thead-dark" style="text-align: center;">
+                            <th>주문번호</th>
+                            <th>주문자 ID</th>
+                            <th>핸드폰</th>
+                            <th>주문날짜</th>
+                            <th>배송상태</th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <tr ng-repeat="orde in postReadyList" class="listDesign" ng-click="read(orde.order_id)">
+                            <td>{{orde.order_id}}</td>
+                            <td>{{orde.order_memberid}}</td>
+                            <td>{{orde.order_phone}}</td>
+                            <td>{{orde.order_date | date:"yyyy.MM.dd HH:mm:ss"}}</td>
+                            <td>{{orde.order_state}}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="5" style="text-align: center;">
+                                <button class="btn btn-outline-primary btn-sm" ng-click="getList(1)">처음</button>
+                                <button class="btn btn-sm" ng-show="postReadypager.groupNo>1"
+                                    ng-click="getList(postReadypager.startPageNo-1)">이전</button>
+                                <button ng-repeat="i in postReadypageRange"
+                                    class="btn btn-sm {{(postReadypager.pageNo==i)?'btn-primary':'btn-light'}} {{!$last?'mr-1':''}}"
+                                    ng-click="getList(i)">{{i}}</button>
+                                <button class="btn btn-sm" ng-show="postReadypager.groupNo < postReadypager.totalGroupNo"
+                                    ng-click="getList(postReadypager.endPageNo+1)">다음</button>
+                                <button class="btn btn-outline-primary btn-sm"
+                                    ng-click="getList(postReadypager.totalPageNo)">맨끝</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table ng-show="order_state=='배송중'" class="table table-bordered ">
+                    <thead>
+                        <tr class="thead-dark" style="text-align: center;">
+                            <th>주문번호</th>
+                            <th>주문자 ID</th>
+                            <th>핸드폰</th>
+                            <th>주문날짜</th>
+                            <th>배송상태</th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <tr ng-repeat="orde in postingList" class="listDesign" ng-click="read(orde.order_id)">
+                            <td>{{orde.order_id}}</td>
+                            <td>{{orde.order_memberid}}</td>
+                            <td>{{orde.order_phone}}</td>
+                            <td>{{orde.order_date | date:"yyyy.MM.dd HH:mm:ss"}}</td>
+                            <td>{{orde.order_state}}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="5" style="text-align: center;">
+                                <button class="btn btn-outline-primary btn-sm" ng-click="getList(1)">처음</button>
+                                <button class="btn btn-sm" ng-show="postingpager.groupNo>1"
+                                    ng-click="getList(postingpager.startPageNo-1)">이전</button>
+                                <button ng-repeat="i in postingpageRange"
+                                    class="btn btn-sm {{(postingpager.pageNo==i)?'btn-primary':'btn-light'}} {{!$last?'mr-1':''}}"
+                                    ng-click="getList(i)">{{i}}</button>
+                                <button class="btn btn-sm" ng-show="postingpager.groupNo < postingpager.totalGroupNo"
+                                    ng-click="getList(postingpager.endPageNo+1)">다음</button>
+                                <button class="btn btn-outline-primary btn-sm"
+                                    ng-click="getList(postingpager.totalPageNo)">맨끝</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table ng-show="order_state=='배송완료'" class="table table-bordered ">
+                    <thead>
+                        <tr class="thead-dark" style="text-align: center;">
+                            <th>주문번호</th>
+                            <th>주문자 ID</th>
+                            <th>핸드폰</th>
+                            <th>주문날짜</th>
+                            <th>배송상태</th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <tr ng-repeat="orde in postSuccessList" class="listDesign" ng-click="read(orde.order_id)">
+                            <td>{{orde.order_id}}</td>
+                            <td>{{orde.order_memberid}}</td>
+                            <td>{{orde.order_phone}}</td>
+                            <td>{{orde.order_date | date:"yyyy.MM.dd HH:mm:ss"}}</td>
+                            <td>{{orde.order_state}}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="5" style="text-align: center;">
+                                <button class="btn btn-outline-primary btn-sm" ng-click="getList(1)">처음</button>
+                                <button class="btn btn-sm" ng-show="postSuccesspager.groupNo>1"
+                                    ng-click="getList(postSuccesspager.startPageNo-1)">이전</button>
+                                <button ng-repeat="i in postSuccesspageRange"
+                                    class="btn btn-sm {{(postSuccesspager.pageNo==i)?'btn-primary':'btn-light'}} {{!$last?'mr-1':''}}"
+                                    ng-click="getList(i)">{{i}}</button>
+                                <button class="btn btn-sm" ng-show="postSuccesspager.groupNo < postSuccesspager.totalGroupNo"
+                                    ng-click="getList(postSuccesspager.endPageNo+1)">다음</button>
+                                <button class="btn btn-outline-primary btn-sm"
+                                    ng-click="getList(postSuccesspager.totalPageNo)">맨끝</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             </div>
 
         </div>

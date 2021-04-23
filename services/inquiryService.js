@@ -19,6 +19,9 @@ angular.module("app")
             },
             delete: function(inquiry_id){
                 return $http.delete(BASE_URL+"/"+inquiry_id);
+            },
+            sattachUrl: function(sabang_id) {
+                return BASE_URL + "/sattach/" + sabang_id;
             }
         }
     });
