@@ -53,7 +53,7 @@
                 </thead>
                 <tbody>
                     <tr ng-repeat="sab in sabang" class="listDesign" ng-click="read(sab.sabang_id)">
-                        <td><img src="C:/Users/ant94/git/SabangPalbang_upload/images/sabang_post/{{sab.sabang_imgsname}}"width="100px" height="100px"></td>
+                        <td><img src="{{sattachUrl(sab.sabang_id)}}" width="100px" height="100px"></td>
                         <td>{{sab.sabang_name}}</td>
                         <td>{{sab.sabang_price}}</td>
                         <td>{{sab.sabang_saleprice}}</td>

@@ -133,4 +133,13 @@ angular.module("app")
             
         $scope.date_state = "오래된 순"
         $scope.date_states = ["최신 순", "오래된 순"];
+
+
+        $scope.sattachUrl = (sabang_id) => {
+            return orderService.sattachUrl(sabang_id);
+        };
+
+        $scope.pattachUrl = (product_id) => {
+            return orderService.pattachUrl(product_id);
+        };
     });

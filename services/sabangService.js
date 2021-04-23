@@ -15,6 +15,9 @@ angular.module("app")
             sattachUrl: function(sabang_id) {
                 return BASE_URL + "/sattach/" + sabang_id;
             },
+            pattachUrl: function(product_id) {
+                return BASE_URL + "/pattach/" + product_id;
+            },
             createSabang: function(formData){
                 const promise = $http.post(BASE_URL, formData, {headers:{"Content-Type":undefined}});
                 return promise;

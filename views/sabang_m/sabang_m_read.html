@@ -65,13 +65,13 @@
                     <button class="btn btn-primary btn-sm m-3" ng-click="updateSabangForm(sabang.sabang_id)">수정</button>
                 </div>
                 <div class="flex-grow-1 justify-content-end">
-                    <button class="btn btn-danger btn-sm m-3" ng-click="deleteSabang(sabang.sabang_id)">삭제</button>
+                    <button class="btn btn-danger btn-sm m-3" ng-click="checkSabang(sabang.sabang_id,sabang.sabang_name,pager.pageNo)">삭제</button>
                 </div>   
             </div>
             <div class="sabang_header_content m-3">
                 <div class="sabang_detail_content_mainImg">
                     <img style="width: 400px; height: 400px;"
-                        src="../SabangPalbang_upload/images/sabang_post/{{sabang.sabang_imgsname}}">
+                        src="{{sattachUrl(sabang.sabang_id)}}">
                 </div>
                 <div class="sabang_detail_content_mainContent">
 
@@ -110,7 +110,7 @@
             <div class="sabang_detail_content_space" ng-repeat="product in productlist">
                 <div class="sabang_detail_content_spaceImg">
                     <img style="width: 400px; height: 400px;"
-                        src="C:/Users/ant94/git/SabangPalbang_upload/images/sabang_detail/{{product.product_imgsname}}">
+                        src="{{pattachUrl(product.product_id)}}">
                 </div>
                 <div class="sabang_detail_content_space_txt">
                     <p>상품이름: {{product.product_name}}</p>
@@ -124,7 +124,7 @@
                         <button class="btn btn-primary btn-sm m-3" ng-click="updateProductForm(product)">수정</button>
                     </div>
                     <div class="flex-grow-1 justify-content-end">
-                        <button class="btn btn-danger btn-sm m-3" ng-click="deleteProduct(product.product_id)">삭제</button>
+                        <button class="btn btn-danger btn-sm m-3" ng-click="checkProduct(product.product_id,product.product_name,product.sabang_id)">삭제</button>
                     </div>   
                 </div>
                 <br />

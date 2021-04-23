@@ -28,6 +28,7 @@
             <div class="form-group">
                 <label>상품사진 첨부:</label>
                 <br/>
+                <img src="{{pattachUrl(product.product_id)}}" width="200" height="200" class="mb-2"/>
                 <input id="pattach" type="file" class="form-control-file" />
             </div>
             <button class="btn btn-primary btn-sm" ng-click="updateProduct(product)">등록</button>

@@ -19,44 +19,54 @@
         list-style: none;
         padding: 2%;
     }
+    .deleteBtn:hover{
+        color: white;
+        background-color:red;
+        cursor: pointer;
+    }
 </style>
 
 
 <div class="card">
     <div class="card-header">
-        팔방 게시물 목록
+        회원 목록
     </div>
     <div class="card-body">
 
-        <div class="mb-3">
+        <!-- <div class="mb-3">
             <select ng-model="kindVal">
                 <option ng-repeat="kindVal in kindList">{{kindVal}}</option>
             </select>
-        </div>
+        </div> -->
 
         <div>
             <table class="table table-bordered ">
                 <thead>
                     <tr class="thead-dark" style="text-align: center;">
-                        <th>대표 이미지</th>
-                        <th>제목</th>
+                        <th>아이디</th>
+                        <th>이메일</th>
+                        <th>이름</th>
+                        <th>핸드폰</th>
                         <th>별명</th>
-                        <th>날짜</th>
-                        <th>좋아요 수</th>
-                        <th>조회수</th>
+                        <th>가입날짜</th>
+                        <th>탈퇴</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="pal in palbang" class="listDesign" ng-click="read(pal.palbang_id)">
-                        <td><img src="{{palattachUrl(pal.palbang_id)}}"width="100px" height="100px"></td>
-                        <td>{{pal.palbang_title}}</td>
-                        <td>{{pal.palbang_nickname}}</td>
-                        <td>{{pal.palbang_date | date:"yyyy.MM.dd"}}</td>
-                        <td>{{pal.palbang_likecount}}</td>
-                        <td>{{pal.palbang_viewcount}}</td>
+                    <tr ng-repeat="member in members" class="listDesign" ng-click="read(member.member_email)">
+                        <td>{{member.member_id}}</td>
+                        <td>{{member.member_email}}</td>
+                        <td>{{member.member_name}}</td>
+                        <td>{{member.member_phone}}</td>
+                        <td>{{member.member_nickname}}</td>
+                        <td>{{member.join_date | date:"yyyy.MM.dd"}}</td> 
+                        <td class="deleteBtn">
+                            <button class="btn btn-sm" type="button" 
+                                ng-click="checkDelete(member.member_id,member.member_email)">회원 탈퇴</button>
+                        </td>
                     </tr>
                     <tr>
-                        <td colspan="6" style="text-align: center;">
+                        <td colspan="7" style="text-align: center;">
                             <button class="btn btn-outline-primary btn-sm" ng-click="getList(1)">처음</button>
                             <button class="btn btn-sm" ng-show="pager.groupNo>1"
                                 ng-click="getList(pager.startPageNo-1)">이전</button>
