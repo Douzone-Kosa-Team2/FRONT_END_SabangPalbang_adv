@@ -41,7 +41,7 @@ angular.module("app")
                     $scope.view = "list";
                 });
         };
-
+        //$scope.getList(1);
         $scope.read = (sabang_id) =>{
             sabangService.read(sabang_id)
                 .then((response) => {
@@ -54,7 +54,8 @@ angular.module("app")
             $scope.sabang = null;
             $scope.view = "create";
         };
-        $scope.createSabang = (sabang) => {
+        $scope.createSabang = (sabang, event) => {
+            event.preventDefault();
             var sattach = $("#sattach")[0].files[0];
             if(sabang && sabang.sabang_name && sabang.sabang_price && sattach){
                 var formData = new FormData();
@@ -65,7 +66,7 @@ angular.module("app")
                     formData.append("sabang_saleprice", sabang.sabang_saleprice);
 
                 } else {
-                    formData.append("sabang_saleprice", null);
+                    formData.append("sabang_saleprice", 30);
                 }
                 formData.append("sabang_buycount", 0);
                 formData.append("sabang_viewcount", 0);
@@ -85,8 +86,8 @@ angular.module("app")
             $scope.view = "update";
         };
         $scope.updateSabang = (sabang) => {
-            var sattach = $("#sattach")[0].files[0];
-            if(sabang.sabang_name && sabang.sabang_price && sattach){
+            
+            if(sabang.sabang_name && sabang.sabang_price){
                 var formData = new FormData();
                 formData.append("sabang_id", sabang.sabang_id);
                 formData.append("sabang_name", sabang.sabang_name);
@@ -102,8 +103,10 @@ angular.module("app")
                 formData.append("sabang_state", $scope.sabang_state);
 
                 // 파일 첨부 
-                formData.append("sattach", sattach);
-
+                var sattach = $("#sattach")[0].files[0];
+                if(sattach){
+                    formData.append("sattach", sattach);
+                }
                 sabangService.updateSabang(formData)
                     .then((response) => {
                         $scope.getList(1);
@@ -162,10 +165,10 @@ angular.module("app")
                 formData.append("pattach", pattach);
                 
                 sabangService.createProduct(formData)
-                    .then((response) => {
-                        $scope.getList(1);
-                        $scope.view = "list";
-                    });
+                .then((response) => {
+                    console.log("check");
+                    $scope.read(response.data.sabang_id);
+                });
             }
         };
 
@@ -176,22 +179,32 @@ angular.module("app")
         };
 
         $scope.updateProduct = (product) => {
-            var pattach = $("#pattach")[0].files[0];
-            if(product && product.product_name && product.product_price && pattach){
+            
+            if(product && product.product_name && product.product_price){
                 var formData = new FormData();
                 formData.append("product_id", product.product_id);
+                formData.append("sabang_id", product.sabang_id);
                 formData.append("product_name", product.product_name);
                 formData.append("product_price", product.product_price);
                 formData.append("product_explain1", product.product_explain1);
                 formData.append("product_explain2", product.product_explain2);
 
                 // 파일 첨부 
-                formData.append("pattach", pattach);
+                var pattach = $("#pattach")[0].files[0];
+                if(pattach){
+                    formData.append("pattach", pattach);
+                }
                 
                 sabangService.updateProduct(formData)
                     .then((response) => {
-                        $scope.getList(1);
-                        $scope.view = "list";
+                        console.log(response);
+                        console.log(""+response.data.sabang_id);
+                        sabangService.read(response.data.sabang_id)
+                        .then((response) => {
+                            $scope.sabang = response.data.sabang;
+                            $scope.productlist = response.data.productlist;
+                            $scope.view = "read";
+                        });
                     });
             }
         };
@@ -199,8 +212,14 @@ angular.module("app")
         $scope.deleteProduct = (product_id) => {
             sabangService.deleteProduct(product_id)
             .then((response) => {
-                $scope.getList(1);
-                $scope.view = "list";
+                console.log(response);
+                console.log(""+response.data.sabang_id);
+                sabangService.read(response.data.sabang_id)
+                .then((response) => {
+                    $scope.sabang = response.data.sabang;
+                    $scope.productlist = response.data.productlist;
+                    $scope.view = "read";
+                });
             });
         };
     });
