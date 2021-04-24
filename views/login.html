@@ -1,3 +1,8 @@
+<style>
+ .needInquiry{
+   color:red;
+ }
+</style>
 <div class="card">
   <div class="card-header">
     Login Form
@@ -9,7 +14,9 @@
         <input id="uid" name="uid" type="text" class="form-control" ng-model="user.uid" autocomplete="username" ng-required="true">
 
         <div class="error" ng-show="loginForm.uid.$invalid && loginForm.uid.$dirty">
-          <span ng-show="loginForm.uid.$error.required">필수 입력 사항입니다.</span>
+          <span ng-show="loginForm.uid.$error.required">
+            <div class="needInquiry">아이디는 반드시 입력해야 합니다.</div>
+          </span>
         </div>
       </div>
 
@@ -18,7 +25,9 @@
         <input id="upassword" name="upassword" type="password" class="form-control" ng-model="user.upassword"
           autocomplete="current-password" ng-required="true">
         <div class="error" ng-show="loginForm.upassword.$invalid && loginForm.upassword.$dirty">
-          <span ng-show="loginForm.upassword.$error.required">필수 입력 사항입니다.</span>
+          <span ng-show="loginForm.upassword.$error.required">
+            <div class="needInquiry">비밀번호는 반드시 입력해야 합니다.</div>
+          </span>
         </div>
       </div>
       <!-- AngularJS는 자동 submit 기능이 없음 -->
