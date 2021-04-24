@@ -7,29 +7,15 @@
             <div class="card">
                 <div class="card-header">
                     <div>
-                        오늘의 판매량
+                        누적 판매량
                     </div>
                 </div>
                 <div class="card-body">
-                    <div>
-                        총 판매금액:
+                    <div ng-repeat="sumtotal in sumtotalprice">
+                        총 판매금액: {{sumtotal | number:0}}원
                     </div>
-                    <div>
-                        총 주문건수:
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div>
-            <div class="card">
-                <div class="card-header">
-                    <div>
-                        일단위 판매량
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div>
-                        <!-- 막대그래프 -->
+                    <div ng-repeat="totalc in totalCount">
+                        총 주문건수: {{totalc}}
                     </div>
                 </div>
             </div>
@@ -40,10 +26,18 @@
                     <div>
                         월단위 판매량
                     </div>
-                    <div ng-repeat="total in totalprice">
-                        {{total}}
+                    <div ng-repeat="total in totalprice3">
+                        4월 판매금액 {{total | number: 0}}원
                     </div>
-                    
+                    <div ng-repeat="total in totalprice2">
+                        3월 판매금액 {{total | number: 0}}원
+                    </div>
+                    <div ng-repeat="total in totalprice1">
+                        2월 판매금액 {{total | number: 0}}원
+                    </div>
+                    <div ng-repeat="threetotal in threeTotalCount">
+                        최근 3달간 총 판매금액 {{threetotal | number:0}}원
+                    </div>
                 </div>
                 <div class="card-body">
                     <div>
@@ -56,7 +50,16 @@
             <div class="card">
                 <div class="card-header">
                     <div>
-                        결제 카드 도표
+                        결제 방법 도표
+                    </div>
+                    <div ng-repeat="cardpay in cardpaycount">
+                        카드 결제 {{cardpay}}
+                    </div>
+                    <div ng-repeat="depositpay in depositpaycount">
+                        무통장입금 결제 {{depositpay}}
+                    </div>
+                    <div ng-repeat="phonepay in phonepaycount">
+                        핸드폰 결제 {{phonepay}}
                     </div>
                 </div>
                 <div class="card-body">

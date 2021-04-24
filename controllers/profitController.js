@@ -47,11 +47,16 @@ angular.module("app")
                 $scope.month3 = response.data.month3;
                 $scope.month2 = response.data.month2;
                 $scope.month1 = response.data.month1;
-                $scope.totalprice = response.data.totalprice;
+                $scope.sumtotalprice = response.data.sumtotalprice;
+                $scope.totalprice3 = response.data.totalprice3;
+                $scope.totalprice2 = response.data.totalprice2;
+                $scope.totalprice1 = response.data.totalprice1;
+                $scope.totalCount = response.data.totalCount;
+                $scope.threeTotalCount = response.data.threeTotalCount;
+                $scope.cardpaycount = response.data.cardpaycount;
+                $scope.depositpaycount = response.data.depositpaycount;
+                $scope.phonepaycount = response.data.phonepaycount;
 
-       
-                console.log(month3_total);
-                $scope.month3_totalprice;
 
 
             });
