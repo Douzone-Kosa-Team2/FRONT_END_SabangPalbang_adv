@@ -9,6 +9,6 @@ angular.module("app")
         //민상 - 주문
         const ADD_URL_ORDER = "/order";
         return {
-
+           
         }
     });
