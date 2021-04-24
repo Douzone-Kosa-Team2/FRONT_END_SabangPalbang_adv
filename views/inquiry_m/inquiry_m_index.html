@@ -1,13 +1,21 @@
+<style>
+.custom_profit{
+    width: 50%;
+}
+</style>
+
 <div class="card">
     <div class="card-header">
         문의 관리페이지 
     </div>
     <div class="card-body">
-        <div>
-            <canvas class="chart chart-line" chart-data="data" chart-labels="labels" 
-	                chart-series="series" chart-click="onClick">
+        <div class="custom_profit d-inline-flex d-inline-block">
+            <canvas class="chart chart-bar" chart-data="data1" chart-labels="labels1" 
+	                chart-series="series1" chart-click="onClick">
             </canvas> 
-            test 
+            <canvas class="chart chart-doughnut" chart-data="data2" chart-labels="labels2" 
+                     chart-click="onClick">
+            </canvas> 
         </div>
         <ng-include src="getView()"/>
     </div>
