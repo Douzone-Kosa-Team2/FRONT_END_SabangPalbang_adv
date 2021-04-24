@@ -8,83 +8,43 @@
                 가장 많이 팔린 사방 & 품목
             </div>
             <div class="card">
-                <div class="card-header">
-                    <img src="" />
+                <div class="card-header" style="text-align: center;">
+                    <img src="{{sattachUrl(sabang.sabang_id)}}" style="width: 250px; height: 250px;"/>
                 </div>
                 <div class="card-body">
                     <div>
                         <div>
-                            판매량:
+                            판매량: {{sabang.sabang_buycount}}
                         </div>
                         <div>
-                            사방이름:
+                            사방이름: {{sabang.sabang_name}}
                         </div>
                         <div>
-                            사방가격:
+                            사방가격: {{sabang.sabang_price}}
                         </div>
                     </div>
                 </div>
             </div>
             <div class="card">
-                <div class="card-header">
-                    <img src="" />
+                <div class="card-header" style="text-align: center;">
+                    <img src="{{pattachUrl(product.product_id)}}" style="width: 250px; height: 250px;"/>
                 </div>
                 <div class="card-body">
                     <div>
                         <div>
-                            판매량:
+                            판매량: {{product.product_buycount}}
                         </div>
                         <div>
-                            상품이름:
+                            상품이름: {{product.product_name}}
                         </div>
                         <div>
-                            상품가격:
+                            상품가격: {{product.product_price}}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div>
-            <div>
-                판매가 저조한 사방 & 품목
-            </div>
-            <div class="card">
-                <div class="card-header">
-                    <img src="" />
-                </div>
-                <div class="card-body">
-                    <div>
-                        <div>
-                            판매량:
-                        </div>
-                        <div>
-                            사방이름:
-                        </div>
-                        <div>
-                            사방가격:
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header">
-                    <img src="" />
-                </div>
-                <div class="card-body">
-                    <div>
-                        <div>
-                            판매량:
-                        </div>
-                        <div>
-                            상품이름:
-                        </div>
-                        <div>
-                            상품가격:
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
     </div>
 </div>
