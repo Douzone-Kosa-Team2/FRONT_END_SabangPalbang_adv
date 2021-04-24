@@ -9,7 +9,9 @@ angular.module("app")
         //민상 - 주문
         const ADD_URL_ORDER = "/order";
         return {
+            //채정 - 멤버
 
+            //종현 - 사방
             showBestSabang: function() {
                 const promise = $http.get(BASE_URL+ADD_URL_SABANG);
                 return promise;
@@ -20,6 +22,8 @@ angular.module("app")
             pattachUrl: function(product_id) {
                 return BASE_URL + ADD_URL_SABANG + "/pattach/" + product_id;
             },
+
+            //민상 - 주문
             monthbuy: function() {
                 const promise = $http.get(BASE_URL + ADD_URL_ORDER);
                 return promise;
