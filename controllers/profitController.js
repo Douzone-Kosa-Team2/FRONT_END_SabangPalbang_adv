@@ -52,8 +52,40 @@ angular.module("app")
             console.log("월별판매량들어옴");
             profitService.monthbuy()
             .then((response) => {
-                $scope.monthbuy2 = response.data.monthbuy2;
+                $scope.month3 = response.data.month3;
+                $scope.month2 = response.data.month2;
+                $scope.month1 = response.data.month1;
+                $scope.sumtotalprice = response.data.sumtotalprice;
+                $scope.totalprice3 = response.data.totalprice3;
+                $scope.totalprice2 = response.data.totalprice2;
+                $scope.totalprice1 = response.data.totalprice1;
+                $scope.totalCount = response.data.totalCount;
+                $scope.threeTotalCount = response.data.threeTotalCount;
+                $scope.cardpaycount = response.data.cardpaycount;
+                $scope.depositpaycount = response.data.depositpaycount;
+                $scope.phonepaycount = response.data.phonepaycount;
+
+
+
+
+                // $scope.totalPriceData = [
+                //     [$scope.totalprice[0], $scope.totalprice[1], $scope.totalprice[2]]
+                // ];
+                $scope.totalNumberData = [
+                    [$scope.month3, $scope.month2, $scope.month1]
+                ];
+                // $scope.payData = [
+                //     []
+                // ];
             });
         };
 
+        $scope.monthsLabels = ['금월','전월','전전월'];
+        $scope.priceSeries = ['판매금액'];
+        $scope.numberSeries = ['주문건수'];
+        $scope.colors = ['#46BFBD'];
+
+
+        $scope.payLabels = ['카드','무톧장','휴대번호'];
+        
     });
