@@ -37,6 +37,8 @@ angular.module("app")
         $scope.pattachUrl = (product_id) => {
             return profitService.pattachUrl(product_id);
         };
+        
+        //민상 - 주문
 
         $scope.getmonthbuy = () => {
             console.log("월별판매량들어옴");
@@ -46,5 +48,4 @@ angular.module("app")
             });
         };
 
-        //민상 - 주문
     });
