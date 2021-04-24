@@ -22,6 +22,12 @@ angular.module("app")
             },
             pattachUrl: function(product_id) {
                 return BASE_URL + ADD_URL_SABANG + "/pattach/" + product_id;
+            },
+            monthbuy: function() {
+                const promise = $http.get(BASE_URL + ADD_URL_ORDER);
+                return promise;
             }
+
+            
         }
     });
