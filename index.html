@@ -45,11 +45,13 @@
     <script src="services/profitService.js"></script>
     
 </head>
+<style>
 
+</style>
 <body ng-controller="mainController">
 
     <div class="header_logo">
-        사방팔방 관리자 페이지
+        <a href="#!/profit_m">사방팔방 관리자 페이지</a>
     </div>
 
 
@@ -75,11 +77,12 @@
         text-align: center;
         padding: 30px;
     }
-
     .main_auth_btn {
-        /* background-color: burlywood; */
         text-align: right;
         margin: 20px;
         margin-right: 100px;
     }
+    .header_logo a:link { color: black; text-decoration: none;}
+    .header_logo a:visited { color: black; text-decoration: none;}
+    .header_logo a:hover { color: black; text-decoration: none;}
 </style>
