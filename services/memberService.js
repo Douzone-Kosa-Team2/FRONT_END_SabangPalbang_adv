@@ -13,7 +13,6 @@ angular.module("app")
                 return promise;
             },
             
-            
             updateMember: function(formData){
                 const promise = $http.put(BASE_URL, formData, {headers:{"Content-Type":undefined}});
                 return promise;
