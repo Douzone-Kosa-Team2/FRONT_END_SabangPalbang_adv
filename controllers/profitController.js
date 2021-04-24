@@ -59,7 +59,25 @@ angular.module("app")
 
 
 
+
+                // $scope.totalPriceData = [
+                //     [$scope.totalprice[0], $scope.totalprice[1], $scope.totalprice[2]]
+                // ];
+                $scope.totalNumberData = [
+                    [$scope.month3, $scope.month2, $scope.month1]
+                ];
+                // $scope.payData = [
+                //     []
+                // ];
             });
         };
 
+        $scope.monthsLabels = ['금월','전월','전전월'];
+        $scope.priceSeries = ['판매금액'];
+        $scope.numberSeries = ['주문건수'];
+        $scope.colors = ['#46BFBD'];
+
+
+        $scope.payLabels = ['카드','무톧장','휴대번호'];
+        
     });

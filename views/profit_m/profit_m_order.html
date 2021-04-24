@@ -11,8 +11,10 @@
                     </div>
                 </div>
                 <div class="card-body">
+
                     <div ng-repeat="sumtotal in sumtotalprice">
                         총 판매금액: {{sumtotal | number:0}}원
+
                     </div>
                     <div ng-repeat="totalc in totalCount">
                         총 주문건수: {{totalc}}
@@ -41,7 +43,59 @@
                 </div>
                 <div class="card-body">
                     <div>
-                        <!-- 막대그래프 -->
+                        <div style="display: flex; flex-direction: column; text-align: center; width: 100%;">
+                            <div style="width: 100%;">
+                                <!-- 막대그래프 -->
+                                <div style="width: 100%;">
+                                    <canvas class="chart chart-bar" chart-data="totalPriceData" chart-labels="monthsLabels" chart-colors="colors"
+                                        chart-series="priceSeries" chart-click="onClick">
+                                    </canvas>
+                                </div>
+                                <div>
+                                    <canvas class="chart chart-bar" chart-data="totalNumberData" chart-labels="monthsLabels" chart-colors="colors"
+                                        chart-series="numberSeries" chart-click="onClick">
+                                    </canvas>
+                                </div>
+
+                            </div>
+                            <!-- 
+                            <div style="display: flex; flex-direction: row;">
+                                <div style="flex-grow: 4;">
+                                    <div>
+                                        금월
+                                    </div>
+                                    <div>
+                                        &#8361;{{totalprice[0]}}
+                                    </div>
+                                    <div>
+                                        {{month3.length}} 건
+                                    </div>
+                                </div>
+                                <div style="flex-grow: 4;">
+                                    <div>
+                                        전월
+                                    </div>
+                                    <div>
+                                        &#8361;{{totalprice[1]}}
+                                    </div>
+                                    <div>
+                                        {{month2.length}} 건
+                                    </div>
+                                </div>
+                                <div style="flex-grow: 4;">
+                                    <div>
+                                        전전월
+                                    </div>
+                                    <div>
+                                        &#8361;{{totalprice[2]}}
+                                    </div>
+                                    <div>
+                                        {{month1.length}} 건
+                                    </div>
+                                </div>
+                            </div>-->
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -49,22 +103,14 @@
         <div>
             <div class="card">
                 <div class="card-header">
-                    <div>
-                        결제 방법 도표
-                    </div>
-                    <div ng-repeat="cardpay in cardpaycount">
-                        카드 결제 {{cardpay}}
-                    </div>
-                    <div ng-repeat="depositpay in depositpaycount">
-                        무통장입금 결제 {{depositpay}}
-                    </div>
-                    <div ng-repeat="phonepay in phonepaycount">
-                        핸드폰 결제 {{phonepay}}
-                    </div>
+                    
                 </div>
                 <div class="card-body">
                     <div>
                         <!-- 원형도표 -->
+                        <canvas class="chart chart-pie"
+                                chart-data="payData" chart-labels="payLabels" chart-options="options">
+                        </canvas> 
                     </div>
                 </div>
             </div>
