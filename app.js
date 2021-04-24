@@ -1,4 +1,4 @@
-angular.module("app", ["ngRoute"])
+angular.module("app", ["ngRoute", "chart.js"])
     .config(function ($logProvider) {
         console.log("config test");
     })
@@ -37,4 +37,5 @@ angular.module("app", ["ngRoute"])
                 $route.reload();
             }
         };
+
     });
