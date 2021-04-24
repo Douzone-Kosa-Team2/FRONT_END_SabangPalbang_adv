@@ -44,7 +44,16 @@ angular.module("app")
             console.log("월별판매량들어옴");
             profitService.monthbuy()
             .then((response) => {
-                $scope.monthbuy2 = response.data.monthbuy2;
+                $scope.month3 = response.data.month3;
+                $scope.month2 = response.data.month2;
+                $scope.month1 = response.data.month1;
+                $scope.totalprice = response.data.totalprice;
+
+       
+                console.log(month3_total);
+                $scope.month3_totalprice;
+
+
             });
         };
 

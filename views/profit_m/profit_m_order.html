@@ -38,8 +38,12 @@
             <div class="card">
                 <div class="card-header">
                     <div>
-                        월단위 판매량{{monthbuy2}}
+                        월단위 판매량
                     </div>
+                    <div ng-repeat="total in totalprice">
+                        {{total}}
+                    </div>
+                    
                 </div>
                 <div class="card-body">
                     <div>
