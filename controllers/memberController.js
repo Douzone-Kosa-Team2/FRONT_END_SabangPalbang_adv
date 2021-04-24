@@ -31,7 +31,6 @@ angular.module("app")
             memberService.searchMember(target)
             .then((response) => {
                 $scope.members = response.data; // list 
-                $scope.view = "list";
             });
         };
         
