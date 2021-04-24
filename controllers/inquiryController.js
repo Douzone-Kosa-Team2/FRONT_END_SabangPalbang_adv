@@ -32,14 +32,17 @@ angular.module("app")
         $scope.kindVal = "구매수";
         
         $scope.ansStatusList = ["전체답변", "대기중", "답변완료"];
-        $scope.ansstate = "전체답변"; //초기화 
+        $scope.status = "전체답변"; //초기화 
+
+        $scope.onSelect = (status, sid) => {
+            $scope.status = status;
+            $scope.getInquiryList(1, sid);
+        };
 
         // 사방에 속한 문의 목록 가져오기 
-        $scope.getInquiryList = (pageNo, sid, ansstate) => {
+        $scope.getInquiryList = (pageNo, sid) => {
             $scope.sid = sid;
-            $scope.ansstate = ansstate;
-            console.log("constroller: " + ansstate);
-            inquiryService.inquirylist(pageNo, sid, ansstate)
+            inquiryService.inquirylist(pageNo, sid, $scope.status)
                 .then((response) => {
                     $scope.pager = response.data.pager;
                     $scope.inquirylist = response.data.inquirylist;
@@ -70,7 +73,6 @@ angular.module("app")
             inquiryService.answer(inquiryJson)
                 .then((response) => { 
                     // 응답이 성공하면 inquiry_id를 응답으로 받아야 한다. 
-                    // 수정되었습니다. 뷰에 넘겨주기 
                     $scope.getInquiry(response.data);
                     $window.alert("답변이 정상적으로 등록되었습니다");
                 });
