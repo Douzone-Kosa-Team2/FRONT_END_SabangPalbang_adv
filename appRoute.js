@@ -9,6 +9,6 @@ angular.module("app")
     .when("/palbang_m", {templateUrl:"views/palbang_m/palbang_m_index.html", controller:"palbangController"})
     .when("/order_m", {templateUrl:"views/order_m/order_m_index.html", controller:"orderController"})
     .when("/inquiry_m", {templateUrl:"views/inquiry_m/inquiry_m_index.html", controller:"inquiryController"})
-
+    .when("/profit_m", {templateUrl:"views/profit_m/profit_m_index.html", controller:"profitController"})
     .otherwise({redirectTo: "/"});
 });  

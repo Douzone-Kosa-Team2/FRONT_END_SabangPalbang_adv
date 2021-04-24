@@ -14,9 +14,7 @@ angular.module("app", ["ngRoute"])
                 $http.defaults.headers.common.authToken = newValue;
 
             } else {
-
                 delete $http.defaults.headers.common.authToken;
-
             }
 
         });
