@@ -9,6 +9,10 @@ angular.module("app")
         //민상 - 주문
         const ADD_URL_ORDER = "/order";
         return {
+            showBestMember: function() {
+                const promise = $http.get(BASE_URL+ADD_URL_MEMBER);
+                return promise;
+            },
             showBestSabang: function() {
                 const promise = $http.get(BASE_URL+ADD_URL_SABANG);
                 return promise;
