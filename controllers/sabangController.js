@@ -33,7 +33,10 @@ angular.module("app")
             sabangService.list(pageNo)
                 .then((response) => {
                     $scope.pager = response.data.pager;
-                    $scope.sabang = response.data.sabang;
+                    $scope.sabangBuyList = response.data.sabangBuyList;
+                    $scope.sabangViewList = response.data.sabangViewList;
+                    $scope.sabangHighList = response.data.sabangHighList;
+                    $scope.sabangLowList = response.data.sabangLowList;
                     $scope.pageRange = [];
                     for(var i=$scope.pager.startPageNo; i<=$scope.pager.endPageNo; i++){
                         $scope.pageRange.push(i)
@@ -41,6 +44,11 @@ angular.module("app")
                     $scope.view = "list";
                 });
         };
+
+        $scope.sabang_sorts=["구매수", "조회수", "높은 가격순", "낮은 가격순"];
+        $scope.sabang_sort = "구매수";
+
+
         //$scope.getList(1);
         $scope.read = (sabang_id) =>{
             sabangService.read(sabang_id)
@@ -151,10 +159,6 @@ angular.module("app")
                 });
         };
         
-        $scope.kindList=["구매수", "조회수", "높은 가격순", "낮은 가격순"];
-        $scope.kindVal = "구매수";
-
-
         // 상품 추가
         $scope.createProductForm = () => {
             $scope.product = null;

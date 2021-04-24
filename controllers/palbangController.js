@@ -15,7 +15,10 @@ angular.module("app")
             palbangService.list(pageNo)
                 .then((response) => {
                     $scope.pager = response.data.pager;
-                    $scope.palbang = response.data.palbang;
+                    $scope.palbangLikeList = response.data.palbangLikeList;
+                    $scope.palbangViewList = response.data.palbangViewList;
+                    $scope.palbangNewList = response.data.palbangNewList;
+                    $scope.palbangOldList = response.data.palbangOldList;
                     $scope.pageRange = [];
                     for(var i=$scope.pager.startPageNo; i<=$scope.pager.endPageNo; i++){
                         $scope.pageRange.push(i)
@@ -23,6 +26,12 @@ angular.module("app")
                     $scope.view = "list";
                 });
         };
+
+        //팔방 정렬
+
+        $scope.palbang_sort = "좋아요 수";
+        $scope.palbang_sorts = ["좋아요 수", "조회수", "최신 순", "오래된 순"];
+
 
         $scope.read = (palbang_id) =>{
             palbangService.read(palbang_id)
@@ -39,10 +48,6 @@ angular.module("app")
         $scope.palDattachUrl = (palbang_detailno) => {
             return palbangService.palDattachUrl(palbang_detailno);
         };
-        
-        $scope.kindList=["좋아요 수", "조회수", "최신 순", "오래된 순"];
-        $scope.kindVal = "좋아요 수";
-
          // 삭제 전 확인 - 정말 삭제하시겠습니까 
          $scope.checkDelete = (palbang_id,palbang_title,pageNo) => {
             var result = $window.confirm("정말" + palbang_title +" 삭제하시겠습니까?");
