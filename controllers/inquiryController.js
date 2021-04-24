@@ -1,6 +1,5 @@
 angular.module("app")
     .controller("inquiryController", function($rootScope ,$scope, inquiryService, $window){
-        // 처음 딱 index.html로 들어올 때만 라우터 변경되니까 
         $scope.$on("$routeChangeSuccess", () => {
             $scope.getSabangList(1);
         });
@@ -18,7 +17,12 @@ angular.module("app")
             inquiryService.sabanglist(pageNo)
                 .then((response) => {
                     $scope.pager = response.data.pager;
-                    $scope.sabanglist = response.data.sabangs;
+                    // 정렬 
+                    $scope.sabangBuyList = response.data.sabangBuyList;
+                    $scope.sabangViewList = response.data.sabangViewList;
+                    $scope.sabangHighList = response.data.sabangHighList;
+                    $scope.sabangLowList = response.data.sabangLowList;
+                   
                     $scope.pageRange = [];
                     for(var i=$scope.pager.startPageNo; i<=$scope.pager.endPageNo; i++){
                         $scope.pageRange.push(i)
@@ -27,9 +31,9 @@ angular.module("app")
                 });
         };
 
-        // 정렬 조건 바꾸기 : 문의 많은 순 
-        $scope.kindList=["구매수", "조회수", "높은 가격순", "낮은 가격순"];
-        $scope.kindVal = "구매수";
+        // 정렬 조건 
+        $scope.sabang_sorts=["구매수", "조회수", "높은 가격순", "낮은 가격순"];
+        $scope.sabang_sort = "구매수";
         
         $scope.ansStatusList = ["전체답변", "대기중", "답변완료"];
         $scope.status = "전체답변"; //초기화 
@@ -87,6 +91,7 @@ angular.module("app")
                 $scope.getInquiryList(1, sid); // 현재 페이저를 방송해놔야 하나... 
             }
         };
+
         // 문의 삭제하기 
         $scope.deleteInquiry = (inquiry_id, sid) => {
             inquiryService.delete(inquiry_id)
@@ -99,7 +104,7 @@ angular.module("app")
             return inquiryService.sattachUrl(sabang_id);
         };
 
-        // test
+       // test
        // 막대 그래프 테스트 
        $scope.labels1 = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
        $scope.series1 = ['Series A', 'Series B', 'SeriesC'];
@@ -114,5 +119,4 @@ angular.module("app")
        $scope.labels2 = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
        $scope.data2 = [300, 500, 100];
 
-       
     });

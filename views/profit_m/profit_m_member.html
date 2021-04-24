@@ -1,34 +1,76 @@
 <div class="card">
     <div class="card-header">
-        회원 실적
+        회원 현황
     </div>
     <div class="card-body">
         <div>
             <div>
                 <!-- 막대 그래프 자리 -->
-                
-            </div>
-            <div>
-                <div>
-                    총 회원수: {{totalMemberNum}}
-                </div>
-                <div>
-                    최근 한 달간 가입한 회원수: {{recentJoinNum}}
-                </div>
-                <div>
-                    실구매 회원수: {{buyMemberNum}}
-                </div>
+                <canvas 
+                    class="chart chart-bar" chart-data="data_member" chart-labels="labels_member" 
+	                chart-series="series_member">
+                </canvas> 
             </div>
         </div>
         <br>
         <div>
-            <div class="mt-3">
-                우수 고객:
-                <div ng-repeat="vip in vipMembers">{{vip.member_name}}</div>
+            <div>
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            우수 고객 TOP-5 
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr class="thead-dark" style="text-align: center;">
+                                        <th>순위</th>
+                                        <th>회원 고유번호</th>
+                                        <th>회원 이름</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                      <tr ng-repeat="vip in vipMembers">  
+                                        <td>{{$index+1}}</td>           
+                                        <td>{{vip.member_id}}</td>
+                                        <td>{{vip.member_name}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="mt-3">
-                인플루언서:
-                <div ng-repeat="influencer in influencers">{{influencer.member_nickname}}</div>
+            <div>
+                <div class="card">
+                    <div class="card-header">
+                        <div>
+                            인플루언서 TOP-5 
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr class="thead-dark" style="text-align: center;">
+                                        <th>순위</th>
+                                        <th>회원 고유번호</th>
+                                        <th>회원 별명</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                      <tr ng-repeat="influencer in influencers">   
+                                        <td>{{$index+1}}</td>          
+                                        <td>{{influencer.member_id}}</td>
+                                        <td>{{influencer.member_nickname}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

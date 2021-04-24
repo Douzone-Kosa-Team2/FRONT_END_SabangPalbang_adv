@@ -17,6 +17,14 @@ angular.module("app")
                 $scope.buyMemberNum = response.data.buyMemberNum;
                 $scope.vipMembers = response.data.vipMembers; //list
                 $scope.influencers = response.data.influencers; //list 
+
+                // 채정 - 멤버 막대 그래프 
+                $scope.labels_member = ['총 회원수', '최근 한달간 가입한 회원수', '실구매 회원수'];
+                $scope.series_member = ['인원'];
+
+                $scope.data_member = [
+                    [$scope.totalMemberNum , $scope.recentJoinNum, $scope.buyMemberNum]
+                ];
             });
         };
 
