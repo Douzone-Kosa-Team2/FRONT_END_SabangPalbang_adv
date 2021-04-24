@@ -26,6 +26,14 @@ angular.module("app")
                 });
         };
 
+        // 회원 조회 
+        $scope.searchMember = (target) => {
+            memberService.searchMember(target)
+            .then((response) => {
+                $scope.members = response.data; // list 
+                $scope.view = "list";
+            });
+        };
         
         // 삭제 전 확인 - 정말 삭제하시겠습니까 
         $scope.checkDelete = (member_id,member_email) => {

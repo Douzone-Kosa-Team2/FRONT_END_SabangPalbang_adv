@@ -12,7 +12,10 @@ angular.module("app")
                 const promise = $http.get(BASE_URL + "/" + member_email);
                 return promise;
             },
-            
+            searchMember: function(target) {
+                const promise = $http.get(BASE_URL + "/search" + target);
+                return promise;
+            },
             updateMember: function(formData){
                 const promise = $http.put(BASE_URL, formData, {headers:{"Content-Type":undefined}});
                 return promise;
