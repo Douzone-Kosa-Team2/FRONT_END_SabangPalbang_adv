@@ -1,6 +1,7 @@
 angular.module("app")
     .controller("memberController", function($rootScope ,$scope, memberService,$window){
         $scope.$on("$routeChangeSuccess", () => {
+            console.log("hello world");
             $scope.getList(1);
         });
         $scope.view = "list";
@@ -18,6 +19,7 @@ angular.module("app")
                 .then((response) => {
                     $scope.pager = response.data.pager;
                     $scope.members = response.data.members;
+                    $scope.search = "all";
                     $scope.pageRange = [];
                     for(var i=$scope.pager.startPageNo; i<=$scope.pager.endPageNo; i++){
                         $scope.pageRange.push(i)
@@ -27,11 +29,33 @@ angular.module("app")
         };
 
         // 회원 조회 
-        $scope.searchMember = (target) => {
-            memberService.searchMember(target)
-            .then((response) => {
-                $scope.members = response.data; // list 
-            });
+        $scope.searchMember = (pageNo, target) => {
+            console.log("pageNo: " + pageNo);
+            console.log("target: " + target);
+            
+            if(isNaN(target)){ // 이름 검색 
+                memberService.searchMemberByName(pageNo, target)
+                .then((response) => {
+                    $scope.pager = response.data.pager;
+                    $scope.members = response.data.members;
+                    $scope.search = "name";
+                    $scope.pageRange = [];
+                    for(var i=$scope.pager.startPageNo; i<=$scope.pager.endPageNo; i++){
+                        $scope.pageRange.push(i)
+                    }
+                });
+            }else{ // 아이디 검색 
+                memberService.searchMemberById(pageNo, target)
+                .then((response) => {
+                    $scope.pager = response.data.pager;
+                    $scope.members = response.data.members;
+                    $scope.search = "id";
+                    $scope.pageRange = [];
+                    for(var i=$scope.pager.startPageNo; i<=$scope.pager.endPageNo; i++){
+                        $scope.pageRange.push(i)
+                    }
+                });
+            }
         };
         
         // 삭제 전 확인 - 정말 삭제하시겠습니까 
