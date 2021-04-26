@@ -12,8 +12,12 @@ angular.module("app")
                 const promise = $http.get(BASE_URL + "/" + member_email);
                 return promise;
             },
-            searchMember: function(target) {
-                const promise = $http.get(BASE_URL + "/search/" + target);
+            searchMemberById: function(pageNo=1, target) {
+                const promise = $http.get(BASE_URL + "/id/" + target, {params:{pageNo:pageNo}});
+                return promise;
+            },
+            searchMemberByName: function(pageNo=1, target) {
+                const promise = $http.get(BASE_URL + "/name/" + target, {params:{pageNo:pageNo}});
                 return promise;
             },
             updateMember: function(formData){
