@@ -87,7 +87,9 @@ angular.module("app")
         $scope.monthsLabels = ['금월','전월','전전월'];
         $scope.priceSeries = ['판매금액'];
         $scope.numberSeries = ['주문건수'];
-        $scope.colors = ['#46BFBD'];
+        $scope.colors = [
+            '#FDB45C','#DCDCDC','#46BFBD'
+        ];
 
 
         $scope.payLabels = ['카드','무통장','핸드폰'];

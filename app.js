@@ -1,6 +1,9 @@
 angular.module("app", ["ngRoute", "chart.js"])
-    .config(function ($logProvider) {
+    .config(function ($logProvider,ChartJsProvider) {
         console.log("config test");
+         
+        ChartJsProvider.setOptions({ colors : [ '#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'] });
+          
     })
     .run(function ($rootScope, $http) {
         console.log("app - run callback");
