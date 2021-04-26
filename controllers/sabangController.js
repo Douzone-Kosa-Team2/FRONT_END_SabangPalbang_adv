@@ -93,17 +93,14 @@ angular.module("app")
         $scope.createSabang = (sabang, event) => {
             event.preventDefault();
             var sattach = $("#sattach")[0].files[0];
-            if(sabang && sabang.sabang_name && sabang.sabang_price && sattach){
+            if(sabang && sabang.sabang_name && sattach){
                 var formData = new FormData();
 
                 formData.append("sabang_name", sabang.sabang_name);
-                formData.append("sabang_price", sabang.sabang_price);
-                if(sabang.sabang_saleprice){
-                    formData.append("sabang_saleprice", sabang.sabang_saleprice);
+                formData.append("sabang_price", 0);
+                formData.append("sabang_saleprice", 0);
 
-                } else {
-                    formData.append("sabang_saleprice", 30);
-                }
+                
                 formData.append("sabang_buycount", 0);
                 formData.append("sabang_viewcount", 0);
                 formData.append("sabang_state", "판매준비중");
@@ -244,13 +241,7 @@ angular.module("app")
                     });
             }
         };
-        // // 상품 삭제
-        // $scope.deleteProduct = (product_id) => {
-        //     sabangService.deleteProduct(product_id)
-        //     .then((response) => {
-        //         $scope.read(response.data.sabang_id);
-        //     });
-        // };
+
         // 삭제 전 확인 - 정말 삭제하시겠습니까 
         $scope.checkProduct = (product) => {
             console.log("check");

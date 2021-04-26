@@ -20,6 +20,13 @@
         background-color:red;
         cursor: pointer;
     }
+    #deleteBtn {
+        width: 100%;
+        height: 100%;
+    }
+    #deleteBtn:hover{
+        color: white;
+    }
     .needInquiry{
         color:red;
     }
@@ -69,7 +76,7 @@
                         <td>{{member.member_nickname}}</td>
                         <td>{{member.join_date | date:"yyyy.MM.dd"}}</td> 
                         <td class="deleteBtn">
-                            <button class="btn btn-sm" type="button" 
+                            <button id="deleteBtn" class="btn btn-sm" type="button"
                                 ng-click="checkDelete(member.member_id,member.member_email)">회원 탈퇴</button>
                         </td>
                     </tr>
