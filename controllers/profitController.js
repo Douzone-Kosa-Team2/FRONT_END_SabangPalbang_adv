@@ -77,6 +77,10 @@ angular.module("app")
                 // $scope.payData = [
                 //     []
                 // ];
+
+                $scope.payData = [
+                    [$scope.cardpaycount,  $scope.depositpaycount, $scope.phonepaycount]
+                ];
             });
         };
 
@@ -86,6 +90,7 @@ angular.module("app")
         $scope.colors = ['#46BFBD'];
 
 
-        $scope.payLabels = ['카드','무톧장','휴대번호'];
+        $scope.payLabels = ['카드','무통장','핸드폰'];
+       
         
     });
