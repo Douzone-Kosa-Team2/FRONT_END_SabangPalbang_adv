@@ -68,9 +68,9 @@ angular.module("app")
 
 
 
-                // $scope.totalPriceData = [
-                //     [$scope.totalprice[0], $scope.totalprice[1], $scope.totalprice[2]]
-                // ];
+                $scope.totalPriceData = [
+                    [$scope.totalprice3[0], $scope.totalprice2[0], $scope.totalprice1[0]]
+                ];
                 $scope.totalNumberData = [
                     [$scope.month3, $scope.month2, $scope.month1]
                 ];
