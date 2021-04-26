@@ -13,7 +13,7 @@ angular.module("app")
                 return promise;
             },
             searchMember: function(target) {
-                const promise = $http.get(BASE_URL + "/search" + target);
+                const promise = $http.get(BASE_URL + "/search/" + target);
                 return promise;
             },
             updateMember: function(formData){

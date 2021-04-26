@@ -9,9 +9,6 @@
         background-color: #00B0F0;
         cursor: pointer;
     }
-    /* td > a > img {
-        width:120px;
-    } */
     .table td{
         vertical-align: middle;
     }
@@ -24,6 +21,9 @@
         background-color:red;
         cursor: pointer;
     }
+    .needInquiry{
+        color:red;
+    }
 </style>
 
 
@@ -32,9 +32,12 @@
         회원 조회
     </div>
     <div class="card-body">
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="아이디 또는 이름">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <form name="searchForm" class="form-inline my-2 my-lg-0" novalidate ng-submit="searchMember(target)">
+            <input class="form-control mr-sm-2" name="target" ng-model="target" type="search"  ng-required="true" placeholder="아이디 또는 이름">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" ng-disabled="searchForm.$invalid">Search</button>
+            <div class="error" ng-show="searchForm.target.$invalid && searchForm.target.$dirty">
+                <span class="needInquiry ml-4 mt-2" ng-show="searchForm.target.$error.required"> 아이디 또는 이름을 입력하세요</span>
+            </div>
         </form>
     </div>
     <div class="card-header">
