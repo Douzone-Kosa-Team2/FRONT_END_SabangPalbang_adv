@@ -1,20 +1,21 @@
 angular.module("app")
     .controller("memberController", function($rootScope ,$scope, memberService,$window){
         $scope.$on("$routeChangeSuccess", () => {
-            console.log("hello world");
             $scope.getList(1);
         });
         $scope.view = "list";
         $scope.getView = () => {
             switch($scope.view){
                 case "list": return "views/member_m/member_m_list.html";
-
                 case "read": return "views/member_m/member_m_read.html"; 
                 case "update": return "views/member_m/member_m_update.html";
             }
         };
 
         $scope.getList = (pageNo) => {
+            // 검색창 초기화 
+           //$("#searchInput")[0].val('');
+
             memberService.listMember(pageNo)
                 .then((response) => {
                     $scope.pager = response.data.pager;

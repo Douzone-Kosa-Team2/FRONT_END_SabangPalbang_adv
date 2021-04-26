@@ -7,7 +7,6 @@
     .listDesign:hover {
         color: white;
         background-color: #00B0F0;
-        cursor: pointer;
     }
     .table td{
         vertical-align: middle;
@@ -33,7 +32,7 @@
     </div>
     <div class="card-body">
         <form name="searchForm" class="form-inline my-2 my-lg-0" novalidate ng-submit="searchMember(1, target)">
-            <input class="form-control mr-sm-2" name="target" ng-model="target" type="search"  ng-required="true" placeholder="아이디 또는 이름">
+            <input id="searchInput" class="form-control mr-sm-2" name="target" ng-model="target" type="search"  ng-required="true" placeholder="아이디 또는 이름">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit" ng-disabled="searchForm.$invalid">Search</button>
             <button class="ml-3 btn btn-outline-warning my-2 my-sm-0" ng-click="getList(1)" type="button">전체</button>
         </form>
