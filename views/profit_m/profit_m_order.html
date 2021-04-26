@@ -1,3 +1,23 @@
+<script>
+
+var ctx = document.getElementById("canvas").getContext("2d");
+window.myLine = new Chart(ctx ,{
+          type: &#39;line&#39;,
+          data: yourData,
+          options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true,
+                        min: 0,
+                           
+                    }
+                  }]
+               }
+            }
+});
+
+</script>
 <div class="card">
     <div class="card-header">
         주문 실적
@@ -107,10 +127,10 @@
                 </div>
                 <div class="card-body">
                    
-                    <div class="ml-5" style="width: 65%;">
+                    <div class="ml-5" style="width: 75%;">
                         <!-- 원형도표 -->
                         
-                        <canvas class="ml-3 chart chart-pie"
+                        <canvas class="ml-5 chart chart-pie"
                                 chart-data="payData" chart-labels="payLabels" chart-colors="colors">
                         </canvas> 
 
