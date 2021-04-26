@@ -224,16 +224,24 @@ angular.module("app")
         //     });
         // };
         // 삭제 전 확인 - 정말 삭제하시겠습니까 
-        $scope.checkProduct = (product_id,product_name,sabang_id) => {
-            var result = $window.confirm("정말" + product_name +" 삭제하시겠습니까?");
+        $scope.checkProduct = (product) => {
+            console.log("check");
+            console.log(""+product.product_id);
+            console.log(""+product.sabang_id);
+            console.log(product.product_name);
+            console.log(""+product.product_price);
+            var result = $window.confirm("정말" + product.product_name +" 삭제하시겠습니까?");
+
             if(result){
-                $scope.deleteProduct(product_id,sabang_id);
+                console.log("check2");
+                $scope.deleteProduct(product.product_id,product.sabang_id);
             }
         };
         // 사방 삭제하기 
         $scope.deleteProduct = (product_id,sabang_id) => {
             sabangService.deleteProduct(product_id)
                 .then(() => {
+                    console.log("success");
                     $scope.read(sabang_id);
                 });
         };

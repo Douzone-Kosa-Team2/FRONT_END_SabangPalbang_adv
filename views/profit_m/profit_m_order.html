@@ -2,7 +2,7 @@
     <div class="card-header">
         주문 실적
     </div>
-    <div class="card-body">
+    <div class="card-body" style="">
         <div>
             <div class="card">
                 <div class="card-header">
@@ -46,14 +46,14 @@
                         <div style="display: flex; flex-direction: column; text-align: center; width: 100%;">
                             <div style="width: 100%;">
                                 <!-- 막대그래프 -->
-                                <div style="width: 100%;">
+                                <div style="width: 100%; margin-bottom: 1%;">
                                     <canvas class="chart chart-bar" chart-data="totalPriceData" chart-labels="monthsLabels" chart-colors="colors"
-                                        chart-series="priceSeries" chart-click="onClick">
+                                        chart-series="priceSeries">
                                     </canvas>
                                 </div>
                                 <div>
                                     <canvas class="chart chart-bar" chart-data="totalNumberData" chart-labels="monthsLabels" chart-colors="colors"
-                                        chart-series="numberSeries" chart-click="onClick">
+                                        chart-series="numberSeries">
                                     </canvas>
                                 </div>
 
