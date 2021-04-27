@@ -25,6 +25,9 @@ angular.module("app")
             pattachUrl: function(product_id) {
                 return BASE_URL + ADD_URL_SABANG + "/pattach/" + product_id;
             },
+            palattachUrl: function(palbang_id) {
+                return BASE_URL + ADD_URL_SABANG + "/palattach/" + palbang_id;
+            },
 
             //민상 - 주문
             monthbuy: function() {

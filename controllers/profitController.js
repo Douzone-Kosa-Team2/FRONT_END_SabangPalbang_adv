@@ -36,12 +36,11 @@ angular.module("app")
 
         //종현 - 사방
         $scope.showBestSabang = () => {
-            console.log("come in");
             profitService.showBestSabang()
             .then((response) => {
-                console.log("success");
                 $scope.sabang = response.data.BestSabang;
                 $scope.product = response.data.BestProduct;
+                $scope.palbang = response.data.BestPalbang;
             });
         };
         $scope.sattachUrl = (sabang_id) => {
@@ -50,6 +49,10 @@ angular.module("app")
 
         $scope.pattachUrl = (product_id) => {
             return profitService.pattachUrl(product_id);
+        };
+
+        $scope.palattachUrl = (palbang_id) => {
+            return profitService.palattachUrl(palbang_id);
         };
         
         //민상 - 주문
