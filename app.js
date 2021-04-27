@@ -25,6 +25,7 @@ angular.module("app", ["ngRoute", "chart.js"])
 
     .controller("mainController", function ($rootScope, $scope, $location, $route) {
 
+        
         $scope.logout = () => {
             console.log("logout");
             $rootScope.uid = "";

@@ -70,6 +70,9 @@ angular.module("app")
                 $scope.cardpaycount = response.data.cardpaycount;
                 $scope.depositpaycount = response.data.depositpaycount;
                 $scope.phonepaycount = response.data.phonepaycount;
+                $scope.outputThreeMonth = response.data.outputThreeMonth;
+                $scope.outputTwoMonth = response.data.outputTwoMonth;
+                $scope.outputOneMonth = response.data.outputOneMonth;
 
                 $scope.totalPriceData = [
                     [$scope.totalprice3[0], $scope.totalprice2[0], $scope.totalprice1[0],23000000,25000000]
