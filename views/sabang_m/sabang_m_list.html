@@ -65,8 +65,8 @@
                             <td><img src="{{sattachUrl(sab.sabang_id)}}" width="100px" height="100px"></td>
                             <td>{{sab.sabang_name}}</td>
                             <td>{{sab.sabang_price}}</td>
-                            <td>{{sab.sabang_saleprice}}</td>
-                            <td>{{sab.sabang_buycount}}</td>
+                            <td>{{sab.sabang_saleprice | number:0}}</td>
+                            <td>{{sab.sabang_buycount | number:0}}</td>
                             <td>{{sab.sabang_viewcount}}</td>
                             <td>{{sab.sabang_state}}</td>
                         </tr>
@@ -103,8 +103,8 @@
                         <tr ng-repeat="sab in sabangSaleReadyList" class="listDesign" ng-click="read(sab.sabang_id)">
                             <td><img src="{{sattachUrl(sab.sabang_id)}}" width="100px" height="100px"></td>
                             <td>{{sab.sabang_name}}</td>
-                            <td>{{sab.sabang_price}}</td>
-                            <td>{{sab.sabang_saleprice}}</td>
+                            <td>{{sab.sabang_price | number:0}}</td>
+                            <td>{{sab.sabang_saleprice | number:0}}</td>
                             <td>{{sab.sabang_buycount}}</td>
                             <td>{{sab.sabang_viewcount}}</td>
                             <td>{{sab.sabang_state}}</td>
@@ -143,8 +143,8 @@
                         <tr ng-repeat="sab in sabangSaleStopList" class="listDesign" ng-click="read(sab.sabang_id)">
                             <td><img src="{{sattachUrl(sab.sabang_id)}}" width="100px" height="100px"></td>
                             <td>{{sab.sabang_name}}</td>
-                            <td>{{sab.sabang_price}}</td>
-                            <td>{{sab.sabang_saleprice}}</td>
+                            <td>{{sab.sabang_price | number:0}}</td>
+                            <td>{{sab.sabang_saleprice | number:0}}</td>
                             <td>{{sab.sabang_buycount}}</td>
                             <td>{{sab.sabang_viewcount}}</td>
                             <td>{{sab.sabang_state}}</td>
@@ -185,8 +185,8 @@
                         <tr ng-repeat="sab in sabangBuyList" class="listDesign" ng-click="read(sab.sabang_id)">
                             <td><img src="{{sattachUrl(sab.sabang_id)}}" width="100px" height="100px"></td>
                             <td>{{sab.sabang_name}}</td>
-                            <td>{{sab.sabang_price}}</td>
-                            <td>{{sab.sabang_saleprice}}</td>
+                            <td>{{sab.sabang_price | number:0}}</td>
+                            <td>{{sab.sabang_saleprice | number:0}}</td>
                             <td>{{sab.sabang_buycount}}</td>
                             <td>{{sab.sabang_viewcount}}</td>
                             <td>{{sab.sabang_state}}</td>
@@ -226,8 +226,8 @@
                         <tr ng-repeat="sab in sabangViewList" class="listDesign" ng-click="read(sab.sabang_id)">
                             <td><img src="{{sattachUrl(sab.sabang_id)}}" width="100px" height="100px"></td>
                             <td>{{sab.sabang_name}}</td>
-                            <td>{{sab.sabang_price}}</td>
-                            <td>{{sab.sabang_saleprice}}</td>
+                            <td>{{sab.sabang_price | number:0}}</td>
+                            <td>{{sab.sabang_saleprice | number:0}}</td>
                             <td>{{sab.sabang_buycount}}</td>
                             <td>{{sab.sabang_viewcount}}</td>
                             <td>{{sab.sabang_state}}</td>
@@ -267,8 +267,8 @@
                         <tr ng-repeat="sab in sabangHighList" class="listDesign" ng-click="read(sab.sabang_id)">
                             <td><img src="{{sattachUrl(sab.sabang_id)}}" width="100px" height="100px"></td>
                             <td>{{sab.sabang_name}}</td>
-                            <td>{{sab.sabang_price}}</td>
-                            <td>{{sab.sabang_saleprice}}</td>
+                            <td>{{sab.sabang_price | number:0}}</td>
+                            <td>{{sab.sabang_saleprice | number:0}}</td>
                             <td>{{sab.sabang_buycount}}</td>
                             <td>{{sab.sabang_viewcount}}</td>
                             <td>{{sab.sabang_state}}</td>
@@ -308,8 +308,8 @@
                         <tr ng-repeat="sab in sabangLowList" class="listDesign" ng-click="read(sab.sabang_id)">
                             <td><img src="{{sattachUrl(sab.sabang_id)}}" width="100px" height="100px"></td>
                             <td>{{sab.sabang_name}}</td>
-                            <td>{{sab.sabang_price}}</td>
-                            <td>{{sab.sabang_saleprice}}</td>
+                            <td>{{sab.sabang_price | number:0}}</td>
+                            <td>{{sab.sabang_saleprice | number:0}}</td>
                             <td>{{sab.sabang_buycount}}</td>
                             <td>{{sab.sabang_viewcount}}</td>
                             <td>{{sab.sabang_state}}</td>
