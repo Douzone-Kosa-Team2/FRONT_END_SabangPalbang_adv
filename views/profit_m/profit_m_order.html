@@ -66,7 +66,7 @@
                 <div class="card-body">
                     <div>
                         <div style="display: flex; flex-direction: column; text-align: center; width: 100%;">
-                            <b class="ml-5">최근 3달 판매금액 및 주문 수 막대도표</b>
+                            <b class="ml-5">최근 3달 판매금액</b>
                             <div style="width: 100%;">
                                 <!-- 막대그래프 -->
                                 <div style="width: 100%; margin-bottom: 1%;">
@@ -74,7 +74,8 @@
                                         chart-series="priceSeries">
                                     </canvas>
                                 </div>
-                                <div>
+                                <div class="mt-5">
+                                    <b class="ml-5">최근 3달 주문 수</b>
                                     <canvas class="chart chart-bar" chart-data="totalNumberData" chart-labels="monthsLabels" chart-colors="color3"
                                         chart-series="numberSeries">
                                     </canvas>
@@ -89,7 +90,7 @@
         <div>
             <div class="card">
                 <div class="card-header">
-                    <h5 class="mt-2">최근 3개월 결제방식</h5>
+                    <h5 class="mt-2">결제방식</h5>
                 </div>
                 <div class="card-body">
                     <b>사방팔방 결제방식 원형도표</b>
