@@ -1,6 +1,12 @@
 angular.module("app") 
 .config(function($locationProvider, $routeProvider) {
-   
+    //HTML5 모드 활성화
+        console.log("app - config callback");
+        $locationProvider.html5Mode({
+            enabled: true,
+            requireBase: true
+        });
+
     $routeProvider
     // 왼쪽은 라우트 경로, templateUrl은 물리적인 경로
     .when("/", {templateUrl: "views/login.html",controller:"authController"})
