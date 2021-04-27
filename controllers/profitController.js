@@ -23,7 +23,7 @@ angular.module("app")
                 $scope.series_member = ['인원'];
 
                 $scope.data_member = [
-                    [$scope.totalMemberNum , $scope.recentJoinNum, $scope.buyMemberNum]
+                    [$scope.totalMemberNum , $scope.recentJoinNum, $scope.buyMemberNum, 0]
                 ];
             });
         };
