@@ -64,7 +64,9 @@ angular.module("app")
                 $scope.cardpaycount = response.data.cardpaycount;
                 $scope.depositpaycount = response.data.depositpaycount;
                 $scope.phonepaycount = response.data.phonepaycount;
-
+                $scope.outputThreeMonth = response.data.outputThreeMonth;
+                $scope.outputTwoMonth = response.data.outputTwoMonth;
+                $scope.outputOneMonth = response.data.outputOneMonth;
 
 
 
