@@ -3,8 +3,16 @@
         color:red;
         font-weight: bold;
     }
+    .needInquiry:focus{
+        color:red;
+        font-weight: bold;
+    }
     .completeInquiry{
-        color:cornflowerblue;
+        color: #00B0F0;
+        font-weight: bold;
+    }
+    .completeInquiry:focus{
+        color: #00B0F0;
         font-weight: bold;
     }
 </style>
@@ -48,8 +56,8 @@
                 <textarea name="anscontent" class="form-control" ng-model="inquiry.inquiry_anscontent" ng-required="true"></textarea>
                 
             </div>
-            <button type="submit" class="btn btn-primary btn-sm" ng-disabled="inquiryForm.$invalid">답변 등록</button>
-            <button type="button" class="btn btn-primary btn-sm" ng-click="getInquiryList(1, inquiry.inquiry_sabangid)">취소</button>
+            <button type="submit" class="btn btn-sm" style="background-color: #00B0F0; color: white;" ng-disabled="inquiryForm.$invalid">답변 등록</button>
+            <button type="button" class="btn btn-sm" style="background-color: #00B0F0; color: white;" ng-click="getInquiryList(1, inquiry.inquiry_sabangid)">취소</button>
         </form>
     </div>
 </div>
