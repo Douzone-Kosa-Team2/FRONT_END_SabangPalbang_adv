@@ -72,19 +72,19 @@
             </div>
             <div class="form-group">
                 <label>Phone:</label>
-                <input class="form-control" ng-model="order.order_phone"/>
+                <input style="width: 20%" class="form-control" ng-model="order.order_phone"/>
             </div>
             <div class="mb-1">
 				<input type="text" id="zipcode" placeholder="우편번호"
-                    ng-model="order.order_zipcode" style="width: 69%"
+                    ng-model="order.order_zipcode" style="width: 20%"
 					readonly> 
                     <input type="button" onclick="DaumPostcode()"
-					value="우편번호 찾기" style="width: 30%">
+					value="우편번호 찾기" style="width: 10%">
 			</div>
 			<div class="mb-1">
 				<input type="text" id="roadaddress" placeholder="주소"
                      ng-model="order.order_roadaddress"
-					 style="width: 100%" readonly>
+					 style="width: 30%" readonly>
 			</div>
 			<div class="mb-1">
 				<input type="text" id="detailaddress" placeholder="상세주소"
