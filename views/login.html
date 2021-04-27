@@ -1,16 +1,47 @@
 <style>
- .needInquiry{
-   color:red;
- }
+  .needInquiry {
+    color: red;
+
+  }
+
+  .login_input {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    margin: 20px;
+  }
+
+  .login_input>input {
+    margin: 15px;
+  }
+
+  .login_content {
+    background-image: url('resources/images/login1.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding-top: 100px;
+    padding-bottom: 300px;
+    padding-top: 100px;
+    background-size: contain;
+  }
+
+  .login_header {
+    margin: 20px;
+  }
 </style>
 <div class="card">
-  <div class="card-header">
-    Login Form
+  <div class="card-header" style="height:50px;">
   </div>
   <div class="card-body">
+    <!-- 
     <form name="loginForm" novalidate>
       <div class="form-group">
-        <label for="uid">User ID</label>
+        <label for="uid">아이디</label>
         <input id="uid" name="uid" type="text" class="form-control" ng-model="user.uid" autocomplete="username" ng-required="true">
 
         <div class="error" ng-show="loginForm.uid.$invalid && loginForm.uid.$dirty">
@@ -21,7 +52,7 @@
       </div>
 
       <div class="form-group">
-        <label for="upassword">User Password</label>
+        <label for="upassword">비밀번호</label>
         <input id="upassword" name="upassword" type="password" class="form-control" ng-model="user.upassword"
           autocomplete="current-password" ng-required="true">
         <div class="error" ng-show="loginForm.upassword.$invalid && loginForm.upassword.$dirty">
@@ -29,10 +60,45 @@
             <div class="needInquiry">비밀번호는 반드시 입력해야 합니다.</div>
           </span>
         </div>
-      </div>
-      <!-- AngularJS는 자동 submit 기능이 없음 -->
-      <button type="submit" class="btn btn-primary" ng-disabled="loginForm.$invalid"
+      </div>-->
+    <!-- AngularJS는 자동 submit 기능이 없음 -->
+    <!-- <button type="submit" class="btn btn-primary" ng-disabled="loginForm.$invalid" 
         ng-click="login(user)">Login</button>
-    </form>
+    </form>-->
+    <div class="login_content">
+      <div class="login_header">
+
+        <h3 style="color: #262626">로그인</h3>
+
+      </div>
+      <form name="loginForm" novalidate>
+        <div class="login_input">
+          <div class="mb-3">
+            <input id="uid" name="uid" type="text" class="form-control" ng-model="user.uid" placeholder="이메일"
+              autocomplete="username" ng-required="true">
+            <div class="error" ng-show="loginForm.uid.$invalid && loginForm.uid.$dirty">
+              <span ng-show="loginForm.uid.$error.required">
+                <div class="needInquiry">아이디는 반드시 입력해야 합니다.</div>
+              </span>
+            </div>
+          </div>
+          <div class="mb-3">
+            <input id="upassword" name="upassword" type="password" class="form-control" ng-model="user.upassword"
+              autocomplete="current-password" ng-required="true" placeholder="비밀번호">
+            <div class="error" ng-show="loginForm.upassword.$invalid && loginForm.upassword.$dirty">
+              <span ng-show="loginForm.upassword.$error.required">
+                <div class="needInquiry">비밀번호는 반드시 입력해야 합니다.</div>
+              </span>
+            </div>
+
+          </div>
+          <div style="display: flex; align-items: center; justify-content: center;">
+
+              <button type="submit" class="btn" ng-disabled="loginForm.$invalid" style="background-color: #00B0F0; color: white; width: 100%;"
+                      ng-click="login(user)">로그인</button>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
 </div>

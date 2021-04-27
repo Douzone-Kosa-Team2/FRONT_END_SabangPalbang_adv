@@ -35,7 +35,7 @@ window.myLine = new Chart(ctx ,{
 
                     </div>
                     <div ng-repeat="totalc in totalCount">
-                        총 주문건수: {{totalc}}
+                        총 주문건수: {{totalc}} 건
                     </div>
                 </div>
             </div>
@@ -76,42 +76,6 @@ window.myLine = new Chart(ctx ,{
                                 </div>
 
                             </div>
-                            <!-- 
-                            <div style="display: flex; flex-direction: row;">
-                                <div style="flex-grow: 4;">
-                                    <div>
-                                        금월
-                                    </div>
-                                    <div>
-                                        &#8361;{{totalprice[0]}}
-                                    </div>
-                                    <div>
-                                        {{month3.length}} 건
-                                    </div>
-                                </div>
-                                <div style="flex-grow: 4;">
-                                    <div>
-                                        전월
-                                    </div>
-                                    <div>
-                                        &#8361;{{totalprice[1]}}
-                                    </div>
-                                    <div>
-                                        {{month2.length}} 건
-                                    </div>
-                                </div>
-                                <div style="flex-grow: 4;">
-                                    <div>
-                                        전전월
-                                    </div>
-                                    <div>
-                                        &#8361;{{totalprice[2]}}
-                                    </div>
-                                    <div>
-                                        {{month1.length}} 건
-                                    </div>
-                                </div>
-                            </div>-->
 
                         </div>
                     </div>
@@ -121,7 +85,7 @@ window.myLine = new Chart(ctx ,{
         <div>
             <div class="card">
                 <div class="card-header">
-                    <h5 class="mt-2">결제방식</h5>
+                    <h5 class="mt-2">최근 3개월 결제방식</h5>
                 </div>
                 <div class="card-body">
                    

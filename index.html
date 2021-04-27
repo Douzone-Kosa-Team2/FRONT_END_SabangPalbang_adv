@@ -18,7 +18,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js"></script>
     <script src="//cdn.jsdelivr.net/angular.chartjs/latest/angular-chart.min.js"></script>
-    
+
     <!-- <base href="/"/> -->
 
     <script src="app.js"></script>
@@ -43,46 +43,172 @@
 
     <script src="controllers/profitController.js"></script>
     <script src="services/profitService.js"></script>
-    
+
 </head>
 <style>
 
 </style>
+
 <body ng-controller="mainController">
 
-    <div class="header_logo">
-        <a href="#!/profit_m">사방팔방 관리자 페이지</a>
+    <div class="header_logo mt-5">
+
+        <div ng-show="uid">
+            <a href="#!/profit_m">사방팔방 관리자 페이지</a>
+            <div class="main_auth_btn">
+                <button type="button" class="btn" ng-click="logout()"
+                    style="background-color: #00B0F0; color: white;">로그아웃</button>
+            </div>
+        </div>
+        <div ng-hide="uid">
+            사방팔방 관리자 페이지
+        </div>
+
     </div>
 
-
     <div ng-show="uid">
-        <div class="main_auth_btn">
-            <button type="button" class="btn btn-info" ng-click="logout()">로그아웃</button>
-        </div>
         <ng-include src="'menu.html'"></ng-include>
     </div>
 
     <div>
-        <ng-view/>
+        <ng-view />
     </div>
+
+    <footer>
+        <div class="footer_top">
+            <div class="footer_name">
+                <a href="info" style="color: black;">
+                    <h3>사방팔방 이야기</h3>
+                </a>
+
+            </div>
+            <div class="footer_sns">
+                <a class="footer_icon" href="https://www.instagram.com/">
+                    <img src="resources/images/instagram.png" width="30" height="30" />
+                </a>
+                <a class="footer_icon" href="https://www.facebook.com/">
+                    <img src="resources/images/facebook.png" width="30" height="30" />
+                </a>
+            </div>
+        </div>
+
+        <hr />
+        <div class="footer_info">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>상호명: </td>
+                        <td colspan="3">사방팔방</td>
+                    </tr>
+                    <tr>
+                        <td>문의하기: </td>
+                        <td>2조</td>
+                        <td>이종현</td>
+                        <td>조민상</td>
+                        <td>이채정</td>
+                    </tr>
+                    <tr>
+                        <td>주소: </td>
+                        <td colspan="3">서울특별시 송파구 중대로 135, 서관12층 </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="footer_copyright">Copyright Ⓒ 2021 4bang8bang. All rights reserved</p>
+    </footer>
 
 </body>
 
 </html>
 <!-- 다 구현하면 css 폴더에 집어넣기 -->
 <style>
+    /* font style */
+    @font-face {
+        font-family: 'Wemakeprice-Regular';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/Wemakeprice-Regular.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'Cafe24Dangdanghae';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.2/Cafe24Dangdanghae.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    /* 전체 스타일 폰트 */
+    * {
+        font-family: "Wemakeprice-Regular";
+    }
+
+    a {
+        color: black !important;
+        text-decoration: none !important;
+    }
+
     .header_logo {
-        background-color: beige;
-        font-size: 2em;
+        
+        font-size: 2.5em;
         text-align: center;
         padding: 30px;
     }
+
     .main_auth_btn {
         text-align: right;
         margin: 20px;
         margin-right: 100px;
     }
-    .header_logo a:link { color: black; text-decoration: none;}
-    .header_logo a:visited { color: black; text-decoration: none;}
-    .header_logo a:hover { color: black; text-decoration: none;}
+
+    .header_logo a:link {
+        color: black;
+        text-decoration: none;
+    }
+
+    .header_logo a:visited {
+        color: black;
+        text-decoration: none;
+    }
+
+    .header_logo a:hover {
+        color: black;
+        text-decoration: none;
+    }
+
+
+    /* footer css */
+    footer {
+        padding: 30px;
+        padding-left: 200px;
+        padding-right: 200px;
+        background-color: #f8f9fa;
+        color: #868e96;
+        justify-content: center;
+    }
+
+    .footer_top {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .footer_name {
+        padding: 10px;
+        flex-grow: 11;
+    }
+
+    .footer_sns {
+        flex-grow: 1;
+    }
+
+    .footer_sns>.footer_icon {
+        padding: 10px;
+    }
+
+    .footer_info {
+        font-family: "wema";
+    }
+
+    .footer_copyright {
+        color: #ced4da;
+    }
 </style>
