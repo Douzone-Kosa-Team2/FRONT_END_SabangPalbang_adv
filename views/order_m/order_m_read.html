@@ -14,11 +14,6 @@
     .order_detail_content_sabangImg {
         width: 24%;
     }
-
-
-
-
-
     .order_detail_header_detail {
         margin-left: 1%;
     }
@@ -54,10 +49,10 @@
     <div class="card-header">
         <div class="order_detail_header">
         <div class="order_detail_header_btn">
-            <div><button class="btn btn-primary btn-sm m-3" ng-click="getList(pager.pageNo)">목록</button></div>
+            <div><button class="btn btn-sm m-3" style="background-color: #00ADF9; color: white;" ng-click="getList(pager.pageNo)">목록</button></div>
             <div>
-                <button class="btn btn-success btn-sm" ng-click="updateOrderForm()">주문수정</button>
-                <button class="btn btn-danger btn-sm" ng-click="deleteOrder(order.order_id)">주문삭제</button>
+                <button class="btn btn-sm" style="background-color: #0BE324; color: white;" ng-click="updateOrderForm()">주문수정</button>
+                <button class="btn btn-sm" style="background-color: #FB140D; color:  white;"  ng-click="deleteOrder(order.order_id)">주문삭제</button>
             </div>
             
         </div>

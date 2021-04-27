@@ -4,6 +4,8 @@ angular.module("app")
             $scope.showBestMember();
             $scope.showBestSabang();
             $scope.getmonthbuy(); 
+            //ChartJsProvider.setOptions({ colors : [ '#803690', '#00ADF9', '#DCDCDC', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'] });
+            
         });
 
         //채정 - 멤버
@@ -25,6 +27,10 @@ angular.module("app")
                 $scope.data_member = [
                     [$scope.totalMemberNum , $scope.recentJoinNum, $scope.buyMemberNum, 0]
                 ];
+                $scope.color1 = [
+                    '#00ADF9'
+                ];
+
             });
         };
 
@@ -68,20 +74,20 @@ angular.module("app")
                 $scope.outputTwoMonth = response.data.outputTwoMonth;
                 $scope.outputOneMonth = response.data.outputOneMonth;
 
-
-
                 $scope.totalPriceData = [
                     [$scope.totalprice3[0], $scope.totalprice2[0], $scope.totalprice1[0],23000000,25000000]
                 ];
                 $scope.totalNumberData = [
                     [$scope.month3, $scope.month2, $scope.month1,0]
                 ];
-                // $scope.payData = [
-                //     []
-                // ];
-
                 $scope.payData = [
-                    [$scope.cardpaycount,  $scope.depositpaycount, $scope.phonepaycount]
+                    $scope.cardpaycount,  $scope.depositpaycount, $scope.phonepaycount
+                ];
+                $scope.color2 = [
+                    '#00ADF9'
+                ];
+                $scope.color3 = [
+                    '#00ADF9'
                 ];
             });
         };
@@ -90,11 +96,9 @@ angular.module("app")
         $scope.priceSeries = ['판매금액'];
         $scope.numberSeries = ['주문건수'];
         $scope.colors = [
-            '#FDB45C','#DCDCDC','#46BFBD'
+            '#00ADF9','#0BE324','#FFEE57'
         ];
-
-
-        $scope.payLabels = ['카드','무통장','핸드폰'];
+        $scope.payLabels = ["카드","무통장","핸드폰"];
        
         
     });
